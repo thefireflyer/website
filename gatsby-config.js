@@ -2,6 +2,8 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
     title: "Test01",
+    description: "just testing some stuff",
+    author: "thefireflyer",
   },
   plugins: [
     "gatsby-plugin-sass",

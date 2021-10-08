@@ -1,0 +1,53 @@
+$nav-bar-height: 5vh;
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.nav-bar {
+    position: fixed;
+    top: -1.1%;
+    left: -1.1vw;
+    width: 101vw;
+    height: $nav-bar-height;
+    background-color: var(--nava_bar_color, rgba(0,0,0,0));
+    backdrop-filter: blur(var(--nav_bar_blur, 0px));
+    border-color: rebeccapurple;
+    border-width: 0.2vh;
+    border-style: var(--nav_bar_border_style, none);
+    padding-top: $nav-bar-height - $nav-bar-height/2;
+    padding-left: 1.5vw;
+}
+
+.nav-bar img {
+    width: $nav-bar-height;
+    height: $nav-bar-height;
+}
+
+.nav-bar h1 {
+    position: fixed;
+    color: white;
+    top: $nav-bar-height/5;
+    left: $nav-bar-height*2;
+    font-size: $nav-bar-height/3*2;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+p {
+    margin-bottom: 20vh;
+}
+
+img {
+    width: 50%;
+}
+
+main {
+    margin-top: $nav-bar-height+1vh;
+}
