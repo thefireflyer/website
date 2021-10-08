@@ -3,7 +3,6 @@
 import * as React from 'react'
 import { withPrefix ,Link } from 'gatsby'
 
-import "../styles/main.scss"
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 

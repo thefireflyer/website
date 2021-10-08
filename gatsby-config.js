@@ -1,7 +1,7 @@
 module.exports = {
-  pathPrefix: "/theflyingfire",
+  pathPrefix: `/test01`,
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://theflyingfire.github.io",
     title: "Test01",
     description: "just testing some stuff",
     author: "thefireflyer",

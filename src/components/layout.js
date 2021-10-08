@@ -10,6 +10,8 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link, withPrefix } from "gatsby";
 
+import "../styles/main.scss"
+
 const Layout = ({children}) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -43,12 +45,15 @@ const Layout = ({children}) => {
     <>
       <div className="nav-bar" id="navBar">
         
-        <Link to="/" style={{color:`white`,textDecoration:`none`}}><img
-          alt="Logo"
-          src="/icon.png"
-          />
+        <Link to="/"
+        style={{color:`white`,textDecoration:`none`}}>
+            <img
+            alt="Logo"
+            src={withPrefix("/icon.png")}
+            />
 
-        <h1>{data.site.siteMetadata?.title || `Title`}</h1></Link>
+          <h1>{data.site.siteMetadata?.title || `Title`}</h1>
+        </Link>
 
         </div>
   
