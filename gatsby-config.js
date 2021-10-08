@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/theflyingfire",
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
     title: "Test01",
