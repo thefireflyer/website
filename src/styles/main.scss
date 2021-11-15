@@ -1,10 +1,23 @@
-$nav-bar-height: 5vh;
+
+$nav-bar-height: 2.5vw;
+
 
 html {
     scroll-behavior: smooth;
     width: 100%;
     overflow: hidden;
     overflow-y: scroll;
+}
+
+@keyframes nav-bar-element-drop-in {
+    0% {
+        opacity: 0;
+        transform: scale(150%,150%);
+    }
+    100% {
+       opacity: 100%;
+       transform: none;
+    }
 }
 
 .nav-bar {
@@ -20,24 +33,41 @@ html {
     border-style: var(--nav_bar_border_style, none);
     padding-top: $nav-bar-height - $nav-bar-height/2;
     padding-left: 1.5vw;
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 0vw / auto;
+    grid-template-areas: 'test test test test test';
+    overflow: hidden;
+}
+
+.nav-bar * {
+}
+
+.nav-bar #navBarIndex{
+    left: $nav-bar-height*2;
+    
+}
+
+.nav-bar h1 {
+    color: white;
+    
+    position: fixed;
+    top: $nav-bar-height/5;
+    font-size: $nav-bar-height/3*2;
+    animation: nav-bar-element-drop-in 2s;
+    
 }
 
 .nav-bar img {
     width: $nav-bar-height;
     height: $nav-bar-height;
-}
-
-.nav-bar h1 {
-    position: fixed;
-    color: white;
-    top: $nav-bar-height/5;
-    left: 7vw;
-    font-size: $nav-bar-height/3*2;
+    animation: nav-bar-element-drop-in 2s;
 }
 
 body {
-    background-color: black;
     color: white;
+    background: black no-repeat;
 }
 
 p {
@@ -49,5 +79,5 @@ img {
 }
 
 main {
-    margin-top: $nav-bar-height+2vh;
+    margin-top: $nav-bar-height+1vw;
 }

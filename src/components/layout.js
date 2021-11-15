@@ -24,7 +24,7 @@ const Layout = ({children}) => {
   `)
 
   React.useEffect(() => {
-    console.log("hello!");
+    //console.log("hello!");
           
     window.addEventListener('scroll', function() {
       let navBar = this.document.getElementById("navBar");
@@ -39,24 +39,35 @@ const Layout = ({children}) => {
         navBar.style.setProperty("--nav_bar_border_style", "none");
       }
     })
+    document.body.style.background = "black"
+
   })
 
   return (
     <>
       <div className="nav-bar" id="navBar">
         
-        <Link to="/"
-        style={{color:`white`,textDecoration:`none`}}>
+        <Link to="/">
             <img
             alt="Logo"
             src={withPrefix("/icon.png")}
             />
 
-          <h1>{data.site.siteMetadata?.title || `Title`}</h1>
+          <h1 id="navBarIndex">{data.site.siteMetadata?.title || `Title`}</h1>
         </Link>
 
+
+        <Link to="/home"><h1>Home</h1></Link>
+          
+        <Link to="/gallery"><h1>Gallery</h1></Link>
+
+        <Link to="/blog"><h1>Blog</h1></Link>
+
+        <Link to="/about"><h1>About</h1></Link>
+           
         </div>
-  
+
+
         <main>{children}</main>
 
 

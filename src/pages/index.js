@@ -18,6 +18,7 @@ const IndexPage = () => {
                 <li><Link to="/home">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/test2">More random tests</Link></li>
+                <li><Link to="/portal">HomePortal</Link></li>
             </ul>
             <li>Other websites</li>
             <ul>

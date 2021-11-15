@@ -10,8 +10,8 @@ const IndexPage = () => {
     return (
     <Layout>
         <Seo title="Home" />
-        <h1>Home</h1>
-
+        
+        
         
     </Layout>
     )
