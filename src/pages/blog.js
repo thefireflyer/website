@@ -8,20 +8,20 @@ import Seo from '../components/seo';
 
 
 
-const Blog = () => {
-    const data = useStaticQuery(graphql`
+const Blog = ({data}) => {
+    /*const data = useStaticQuery(graphql`
     query test {
         allMarkdownRemark {
-          nodes {
-            frontmatter {
+            nodes {
+              frontmatter {
                 slug
                 title
+              }
             }
           }
-        }
       }
             
-        `)
+        `)*/
     
     
     
@@ -47,3 +47,16 @@ const Blog = () => {
 }
 
 export default Blog
+
+export const query = graphql`
+  {
+    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Blog post"}}}) {
+      nodes {
+        frontmatter {
+          slug
+          title
+        }
+      }
+    }
+  }
+`

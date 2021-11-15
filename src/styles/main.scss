@@ -35,9 +35,10 @@ html {
     padding-left: 1.5vw;
 
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 0vw / auto;
-    grid-template-areas: 'test test test test test';
+    grid-auto-flow: column;
+    //grid-template-columns: auto;
+    //grid-template-rows: 0vw / auto;
+    //grid-template-areas: 'test test test test test';
     overflow: hidden;
 }
 
