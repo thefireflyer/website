@@ -28,20 +28,19 @@ const Blog = () => {
     return (
     <Layout>
         <Seo title="Blog" />
-
-        <ul>
+        
+        <center>
+        <div style={{backgroundColor:`rebeccapurple`,borderRadius:`2vw`, width:`80%`, display:`grid`, gridAutoFlow:`row`}}>
             {data.allMarkdownRemark.nodes.map(link => (
-            <li key={link.frontmatter.slug}>
-                <span>
+            <div key={link.frontmatter.slug}>
                 <a
-                    href={`${link.frontmatter.slug}`}
-                >
-                    {link.frontmatter.title}
+                    href={`${link.frontmatter.slug}`} >
+                        <h2 style={{color:`white`}}>{link.frontmatter.title}</h2> 
                 </a>
-                </span>
-            </li>
+            </div>
             ))}
-        </ul>
+        </div>
+        </center>
        
     </Layout>
     )

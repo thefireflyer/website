@@ -26,19 +26,18 @@ const Gallery = () => {
         
     <Layout>
         <Seo title="Gallery" />
-        
-        <ul>
+        <center>
+        <div style={{backgroundColor:`rebeccapurple`,borderRadius:`2vw`, width:`80%`, display:`grid`, gridAutoFlow:`column`}}>
+            <center>
             {data.allImageSharp.nodes.map(link => (
-            <li key={link.fluid.src}>
-                <span>
                 <img
                 src={link.fluid.src}
-                alt={link.fluid.originalName}>
+                alt={link.fluid.originalName}
+                style={{width:`25%`}}>
                 </img>
-                </span>
-            </li>
-            ))}
-        </ul>
+            ))}</center>
+        </div>
+        </center>
 
     </Layout>
     )
