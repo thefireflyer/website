@@ -16,6 +16,8 @@ const IndexPage = () => {
             <li>Pages</li>
             <ul>
                 <li><Link to="/home">Home</Link></li>
+                <li><Link to="/gallery">Gallery</Link></li>
+                <li><Link to="/blog">Blog</Link></li>
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/test2">More random tests</Link></li>
                 <li><Link to="/portal">HomePortal</Link></li>
@@ -40,4 +42,3 @@ const IndexPage = () => {
 }
 
 export default IndexPage
-

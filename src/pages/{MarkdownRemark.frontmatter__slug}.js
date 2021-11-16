@@ -12,7 +12,12 @@ export default function Template({
       <Layout>
     <div className="blog-post-container">
       <div className="blog-post">
-        <Img fluid={frontmatter.img?.childImageSharp.fluid || ""}></Img>
+        <center>
+        <Img fluid={frontmatter.img?.childImageSharp.fluid || ""} 
+        style={{width:`100vh`}}>
+
+        </Img>
+        </center>
         <h1>{frontmatter?.title || ""}</h1>
         <h2>{frontmatter?.date || ""}</h2>
         <div

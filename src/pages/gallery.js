@@ -21,7 +21,7 @@ const Gallery = ({data}) => {
             <center>
             {data.allMarkdownRemark.nodes.map( image => (
               <Link to={image.frontmatter.slug} >
-              <Img fluid={image.frontmatter.img.childImageSharp.fluid} style={{width:`25%`}}></Img>
+              <img src={image.frontmatter.img.childImageSharp.fluid.src} style={{width:`25%`}}></img>
               </Link>
             ))
             /*data.allImageSharp.nodes.map(link => (

@@ -35,7 +35,7 @@ const Blog = ({data}) => {
             <div key={link.frontmatter.slug}>
                 <a
                     href={`${link.frontmatter.slug}`} >
-                        <h2 style={{color:`white`}}>{link.frontmatter.title}</h2> 
+                        <h1 style={{color:`white`}}>{link.frontmatter.title}</h1> 
                 </a>
             </div>
             ))}
