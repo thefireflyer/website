@@ -45,6 +45,9 @@ const Layout = ({children}) => {
 
   return (
     <>
+    
+    <main>{children}</main>
+    
       <div className="nav-bar" id="navBar">
         
         <Link to="/">
@@ -68,7 +71,6 @@ const Layout = ({children}) => {
         </div>
 
 
-        <main>{children}</main>
 
 
 

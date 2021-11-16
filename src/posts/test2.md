@@ -5,6 +5,4 @@ title: "Test2"
 type: "Blog post"
 ---
 
-test
-
-## test 2
+test2
