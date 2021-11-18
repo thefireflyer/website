@@ -17,11 +17,11 @@ const Gallery = ({data}) => {
     <Layout>
         <Seo title="Gallery" />
         <center>
-        <div style={{backgroundColor:`rebeccapurple`,borderRadius:`2vw`, width:`80%`, display:`grid`, gridAutoFlow:`column`}}>
+        <div style={{width:`80%`, display:`grid`, gridAutoFlow:`column`, rowGap:`3%`, columnGap:`4%`}}>
             <center>
             {data.allMarkdownRemark.nodes.map( image => (
               <Link to={image.frontmatter.slug} >
-              <img src={image.frontmatter.img.childImageSharp.fluid.src} style={{width:`25%`}}></img>
+              <img src={image.frontmatter.img.publicURL} style={{width:`33%`, minWidth:`300px`}}></img>
               </Link>
             ))
             /*data.allImageSharp.nodes.map(link => (
@@ -56,17 +56,13 @@ export default Gallery
 `*/
 export const query = graphql`
   {
-    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Image post"}}}) {
+    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Image post"}}},sort: {fields: frontmatter___date}) {
       nodes {
         frontmatter {
           slug
           title
           img {
-            childImageSharp {
-              fluid(maxWidth: 800) {
-                ...GatsbyImageSharpFluid
-              }
-            }
+            publicURL
           }
         }
       }

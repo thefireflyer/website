@@ -39,11 +39,8 @@ html {
     //grid-template-columns: auto;
     //grid-template-rows: 0vw / auto;
     //grid-template-areas: 'test test test test test';
-    overflow: hidden;
 }
 
-.nav-bar * {
-}
 
 .nav-bar #navBarIndex{
     left: $nav-bar-height*2;
@@ -68,7 +65,7 @@ html {
 
 body {
     color: white;
-    background: black no-repeat;
+    background:black no-repeat;
 }
 
 p {

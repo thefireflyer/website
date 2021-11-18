@@ -39,7 +39,6 @@ const Layout = ({children}) => {
         navBar.style.setProperty("--nav_bar_border_style", "none");
       }
     })
-    document.body.style.background = "black"
 
   })
 

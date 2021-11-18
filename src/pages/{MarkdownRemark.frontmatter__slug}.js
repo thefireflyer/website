@@ -13,10 +13,10 @@ export default function Template({
     <div className="blog-post-container">
       <div className="blog-post">
         <center>
-        <Img fluid={frontmatter.img?.childImageSharp.fluid || ""} 
-        style={{width:`100vh`}}>
+        <img src={frontmatter.img.publicURL} 
+        style={{width:`80%`}}>
 
-        </Img>
+        </img>
         </center>
         <h1>{frontmatter?.title || ""}</h1>
         <h2>{frontmatter?.date || ""}</h2>
@@ -39,11 +39,7 @@ export const pageQuery = graphql`
         slug
         title
         img {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          publicURL
         }
       }
     }

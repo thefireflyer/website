@@ -15,7 +15,7 @@ const Blog = ({data}) => {
             nodes {
               frontmatter {
                 slug
-                title
+                title                
               }
             }
           }
@@ -28,14 +28,18 @@ const Blog = ({data}) => {
     return (
     <Layout>
         <Seo title="Blog" />
-        
-        <center>
-        <div style={{backgroundColor:`rebeccapurple`,borderRadius:`2vw`, width:`80%`, display:`grid`, gridAutoFlow:`row`}}>
+        <center style={{background:`linear-gradient(140deg, magenta, aqua) no-repeat fixed`,width:`100%`,height:`200%`,top:`0`,position:`absolute`, paddingTop:`4vw`, left:`0`}}>
+        <div style={{width:`50%`, display:`grid`, gridAutoFlow:`row`, rowGap:`3%`, minWidth:`400px`}}>
             {data.allMarkdownRemark.nodes.map(link => (
-            <div key={link.frontmatter.slug}>
-                <a
-                    href={`${link.frontmatter.slug}`} >
-                        <h1 style={{color:`white`}}>{link.frontmatter.title}</h1> 
+            <div
+            key={link.frontmatter.slug}
+            style={{backgroundColor: `rgba(0,0,0,0.5)`,borderRadius:`20px`,overflow:'hidden',alignContent:'center',filter:'drop-shadow(0 0 1vw black)'}}>
+                <a href={`${link.frontmatter.slug}`}>
+                  <img 
+                  src={link.frontmatter.img.publicURL}
+                  alt={link.frontmatter.title}
+                  style={{width:`100%`}}></img>
+                  <h1>{link.frontmatter.title}</h1>
                 </a>
             </div>
             ))}
@@ -50,11 +54,14 @@ export default Blog
 
 export const query = graphql`
   {
-    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Blog post"}}}) {
+    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Blog post"}}},sort: {fields: frontmatter___date}) {
       nodes {
         frontmatter {
           slug
           title
+          img {
+            publicURL
+          }
         }
       }
     }

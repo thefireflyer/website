@@ -1,9 +1,9 @@
 ---
 slug: "/blog/test1"
-date: "2021"
+date: "2021-01-01"
 title: "Test1"
 type: "Blog post"
-img: "../icon.png"
+img: test4.png
 ---
 
 test
