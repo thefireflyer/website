@@ -8,7 +8,20 @@ import Seo from '../components/seo';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Img from "gatsby-image"
 
-
+import styled from "styled-components"
+const Section = styled.div`
+  width: 80%;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: auto auto auto;
+  row-gap: 3%;
+  column-gap: 1%;
+  
+@media only screen and (max-width: 900px) {
+  width: 100%;
+  grid-template-columns: auto;
+}
+`
 
 const Gallery = ({data}) => {    
     
@@ -17,11 +30,11 @@ const Gallery = ({data}) => {
     <Layout>
         <Seo title="Gallery" />
         <center>
-        <div style={{width:`80%`, display:`grid`, gridAutoFlow:`column`, rowGap:`3%`, columnGap:`4%`}}>
-            <center>
+        <Section>
+
             {data.allMarkdownRemark.nodes.map( image => (
               <Link to={image.frontmatter.slug} >
-              <img src={image.frontmatter.img.publicURL} style={{width:`33%`, minWidth:`300px`}}></img>
+              <img src={image.frontmatter.img.publicURL} style={{width:`100%`, minWidth:`300px`}}></img>
               </Link>
             ))
             /*data.allImageSharp.nodes.map(link => (
@@ -32,8 +45,8 @@ const Gallery = ({data}) => {
                 style={{width:`25%`}}>
                 </img>
               </Link>
-            ))*/}</center>
-        </div>
+            ))*/}
+        </Section>
         </center>
 
     </Layout>
