@@ -6,6 +6,7 @@ import { withPrefix ,Link, useStaticQuery, graphql } from 'gatsby'
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import Gallery from './gallery';
+import BackgroundCover from '../components/BackgroundCover';
 
 
 const HomePage = ({data}) => {
@@ -32,7 +33,7 @@ const HomePage = ({data}) => {
     return (
     <Layout>
         <Seo title="Home" />
-            <center style={{background:`linear-gradient(140deg, magenta, aqua) no-repeat fixed`,minHeight:`100vh`,width:`100%`,height:`fit-content`,top:`0`,position:`absolute`, left:`0`}}>
+            <BackgroundCover>
             <div class="featured">
 
                 {
@@ -72,7 +73,7 @@ const HomePage = ({data}) => {
             */}
 
             <div style={{marginBottom:`5vh`}}></div>
-            </center>
+            </BackgroundCover>
     </Layout>
     )
 }

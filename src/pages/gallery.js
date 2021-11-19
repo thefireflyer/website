@@ -9,18 +9,45 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Img from "gatsby-image"
 
 import styled from "styled-components"
+import BackgroundCover from '../components/BackgroundCover';
 const Section = styled.div`
   width: 80%;
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: auto auto auto;
-  row-gap: 3%;
-  column-gap: 1%;
+  grid-gap: 1%;
   
 @media only screen and (max-width: 900px) {
-  width: 100%;
+  width: 95%;
   grid-template-columns: auto;
 }
+`
+
+const ImageDiv = styled.div`
+  position: relative;
+  
+  width: 100%;
+  height: fit-content;
+
+  filter: drop-shadow(0 0 1vw black);
+
+  img {
+    border-radius: 20px;
+  }
+
+  @keyframes on-hover {
+    0% {
+      transform: none;
+    }
+    100% {
+      transform: scale( 101%, 101% );
+    }
+  }
+
+  :hover {
+    animation: on-hover 0.2s;
+    transform: scale( 101%, 101% );
+  }
 `
 
 const Gallery = ({data}) => {    
@@ -29,25 +56,21 @@ const Gallery = ({data}) => {
         
     <Layout>
         <Seo title="Gallery" />
-        <center>
+        <BackgroundCover>
+        <div style={{marginBottom:`3.5vw`}}></div>
+
         <Section>
 
             {data.allMarkdownRemark.nodes.map( image => (
+              <ImageDiv>
               <Link to={image.frontmatter.slug} >
               <img src={image.frontmatter.img.publicURL} style={{width:`100%`, minWidth:`300px`}}></img>
               </Link>
-            ))
-            /*data.allImageSharp.nodes.map(link => (
-              <Link to={`/${link.fluid.originalName}`} >
-                <img
-                src={link.fluid.src}
-                alt={link.fluid.originalName}
-                style={{width:`25%`}}>
-                </img>
-              </Link>
-            ))*/}
+              </ImageDiv>
+            ))}
         </Section>
-        </center>
+        <div style={{marginBottom:`10vh`}}></div>
+        </BackgroundCover>
 
     </Layout>
     )

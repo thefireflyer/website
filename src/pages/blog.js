@@ -5,30 +5,16 @@ import { withPrefix ,Link } from 'gatsby'
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+import BackgroundCover from '../components/BackgroundCover';
 
 
 
-const Blog = ({data}) => {
-    /*const data = useStaticQuery(graphql`
-    query test {
-        allMarkdownRemark {
-            nodes {
-              frontmatter {
-                slug
-                title                
-              }
-            }
-          }
-      }
-            
-        `)*/
-    
-    
-    
+const Blog = ({data}) => {    
     return (
     <Layout>
         <Seo title="Blog" />
-        <center style={{background:`linear-gradient(140deg, magenta, aqua) no-repeat fixed`,minHeight:`100vh`,width:`100%`,height:`fit-content`,top:`0`,position:`absolute`, paddingTop:`4vw`, left:`0`}}>
+        <BackgroundCover>
+        <div style={{marginBottom:`3.5vw`}}></div>
         <div style={{width:`50%`, display:`grid`, gridAutoFlow:`row`, rowGap:`3%`, minWidth:`400px`}}>
             {data.allMarkdownRemark.nodes.map(link => (
             <div
@@ -45,7 +31,7 @@ const Blog = ({data}) => {
             ))}
         </div>
         <div style={{marginBottom:`5vh`}}></div>
-        </center>
+        </BackgroundCover>
        
     </Layout>
     )
