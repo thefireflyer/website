@@ -24,6 +24,7 @@ const Portal = () => {
             clearInterval(handle)        
         }, 200);
 
+        return () => {document.body.style.background = "black no-repeat"}
     })
 
     return (

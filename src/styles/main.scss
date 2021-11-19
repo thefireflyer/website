@@ -41,6 +41,8 @@ html {
     //grid-template-areas: 'test test test test test';
 }
 
+.nav-bar * {
+}
 
 .nav-bar #navBarIndex{
     left: $nav-bar-height*2;
@@ -78,4 +80,25 @@ img {
 
 main {
     margin-top: $nav-bar-height+1vw;
+}
+
+.featured-entry {
+    position: relative;
+    max-width: 100%; /* Maximum width */
+    margin: 0 auto; /* Center it */
+}
+
+.featured-entry img {
+    height: 100vh;
+    width: auto;
+}
+
+.featured-entry .featured-title {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    filter: drop-shadow(0 0 1vw black);
+    backdrop-filter: blur( 2px );
 }

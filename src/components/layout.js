@@ -24,8 +24,7 @@ const Layout = ({children}) => {
   `)
 
   React.useEffect(() => {
-    //console.log("hello!");
-          
+    
     window.addEventListener('scroll', function() {
       let navBar = this.document.getElementById("navBar");
       if (window.pageYOffset > 10){
@@ -41,6 +40,7 @@ const Layout = ({children}) => {
     })
 
   })
+
 
   return (
     <>
