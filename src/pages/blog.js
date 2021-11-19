@@ -28,7 +28,7 @@ const Blog = ({data}) => {
     return (
     <Layout>
         <Seo title="Blog" />
-        <center style={{background:`linear-gradient(140deg, magenta, aqua) no-repeat fixed`,width:`100%`,height:`200%`,top:`0`,position:`absolute`, paddingTop:`4vw`, left:`0`}}>
+        <center style={{background:`linear-gradient(140deg, magenta, aqua) no-repeat fixed`,minHeight:`100vh`,width:`100%`,height:`fit-content`,top:`0`,position:`absolute`, paddingTop:`4vw`, left:`0`}}>
         <div style={{width:`50%`, display:`grid`, gridAutoFlow:`row`, rowGap:`3%`, minWidth:`400px`}}>
             {data.allMarkdownRemark.nodes.map(link => (
             <div
@@ -44,6 +44,7 @@ const Blog = ({data}) => {
             </div>
             ))}
         </div>
+        <div style={{marginBottom:`5vh`}}></div>
         </center>
        
     </Layout>

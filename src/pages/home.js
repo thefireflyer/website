@@ -5,6 +5,7 @@ import { withPrefix ,Link, useStaticQuery, graphql } from 'gatsby'
 
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+import Gallery from './gallery';
 
 
 const HomePage = ({data}) => {
@@ -31,7 +32,7 @@ const HomePage = ({data}) => {
     return (
     <Layout>
         <Seo title="Home" />
-            <center style={{width:`100%`,height:`200%`,top:`0`,position:`absolute`, left:`0`}}>
+            <center style={{background:`linear-gradient(140deg, magenta, aqua) no-repeat fixed`,minHeight:`100vh`,width:`100%`,height:`fit-content`,top:`0`,position:`absolute`, left:`0`}}>
             <div class="featured">
 
                 {
@@ -50,17 +51,27 @@ const HomePage = ({data}) => {
             </div>
 
             <div class="About-section" style={{textAlign:`center`}}>
-
+                <Link to="/about">
                 <h1>
                     About
                 </h1>
+                </Link>
 
                 <p>
                     Welcome to my website, I am a programmer and digital artist and most of the stuff I make in either medium goes up here. <br></br>
                     You can also find me on <a href="https://www.youtube.com/channel/UCJBJX_6j1520fVj73qi3RGQ">YouTube</a>, <a href="https://github.com/theflyingfire">GitHub</a> and <a href="https://thefireflyer.itch.io/">Itch.io</a>.
                 </p>
-
             </div>
+            
+            {/*}
+            <embed style={{borderRadius:`15px 50px 30px`, filter:`drop-shadow(0 0 1vw rgba(0,0,0,0.5))`}} type="text/html" src={withPrefix("gallery")} width="80%" height="600vh"></embed>
+            
+            <div style={{marginBottom:`5vh`}}></div>
+
+            <embed style={{borderRadius:`15px 50px 30px`, filter:`drop-shadow(0 0 1vw rgba(0,0,0,0.5))`}} type="text/html" src={withPrefix("blog")} width="80%" height="600vh"></embed>
+            */}
+
+            <div style={{marginBottom:`5vh`}}></div>
             </center>
     </Layout>
     )
