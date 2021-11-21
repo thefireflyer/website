@@ -19,6 +19,7 @@
       
       <center>{children}</center>  
   
+      <div style={{marginBottom:`5vh`}}></div>
       </div>
     )
   }

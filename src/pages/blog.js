@@ -30,7 +30,6 @@ const Blog = ({data}) => {
             </div>
             ))}
         </div>
-        <div style={{marginBottom:`5vh`}}></div>
         </BackgroundCover>
        
     </Layout>

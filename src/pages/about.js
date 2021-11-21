@@ -5,13 +5,14 @@ import { withPrefix ,Link } from 'gatsby'
 
 import Layout from '../components/layout';
 import Seo from '../components/seo'
+import BackgroundCover from '../components/BackgroundCover';
 
 const AboutPage = () => {
   return (
     <Layout>
     <Seo title="About" />
-    
-        
+    <BackgroundCover>
+        <div style={{marginBottom:`3.5vw`}}></div>
     <img
         alt="Background pic"
         src={withPrefix("icon.png")}
@@ -32,7 +33,8 @@ Porta lorem mollis aliquam ut porttitor leo a diam sollicitudin. Vitae proin sag
 Lacus laoreet non curabitur gravida arcu. Gravida cum sociis natoque penatibus et magnis dis. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan. Nibh ipsum consequat nisl vel pretium lectus quam id leo. Amet commodo nulla facilisi nullam. Ultrices dui sapien eget mi proin sed libero. Ultrices gravida dictum fusce ut placerat. Ullamcorper a lacus vestibulum sed arcu non odio. Faucibus interdum posuere lorem ipsum. Leo integer malesuada nunc vel risus commodo viverra maecenas. Ultrices tincidunt arcu non sodales neque sodales ut. Molestie at elementum eu facilisis sed odio morbi quis. Euismod elementum nisi quis eleifend quam. Congue nisi vitae suscipit tellus mauris a diam maecenas. Donec ultrices tincidunt arcu non. Laoreet non curabitur gravida arcu ac. Gravida neque convallis a cras semper auctor neque vitae tempus. Pharetra convallis posuere morbi leo.
 </p>
 
-
+    </BackgroundCover>
+        
       </Layout>
   )
 }

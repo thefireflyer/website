@@ -72,7 +72,6 @@ const HomePage = ({data}) => {
             <embed style={{borderRadius:`15px 50px 30px`, filter:`drop-shadow(0 0 1vw rgba(0,0,0,0.5))`}} type="text/html" src={withPrefix("blog")} width="80%" height="600vh"></embed>
             */}
 
-            <div style={{marginBottom:`5vh`}}></div>
             </BackgroundCover>
     </Layout>
     )
