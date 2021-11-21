@@ -20,7 +20,7 @@ const Blog = ({data}) => {
             <div
             key={link.frontmatter.slug}
             style={{backgroundColor: `rgba(0,0,0,0.5)`,borderRadius:`20px`,overflow:'hidden',alignContent:'center',filter:'drop-shadow(0 0 1vw black)'}}>
-                <a href={`${link.frontmatter.slug}`}>
+                <a href={withPrefix(link.frontmatter.slug)}>
                   <img 
                   src={link.frontmatter.img.publicURL}
                   alt={link.frontmatter.title}

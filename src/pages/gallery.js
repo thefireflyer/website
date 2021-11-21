@@ -69,7 +69,6 @@ const Gallery = ({data}) => {
               </ImageDiv>
             ))}
         </Section>
-        <div style={{marginBottom:`10vh`}}></div>
         </BackgroundCover>
 
     </Layout>
