@@ -1,3 +1,10 @@
+/*
+
+- update logo stuff
+- about page
+- blog post pages
+
+*/
 
 // Step 1: Import React
 import * as React from 'react'

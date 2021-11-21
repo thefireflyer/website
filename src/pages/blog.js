@@ -19,7 +19,8 @@ const Blog = ({data}) => {
             {data.allMarkdownRemark.nodes.map(link => (
             <div
             key={link.frontmatter.slug}
-            style={{backgroundColor: `rgba(0,0,0,0.5)`,borderRadius:`20px`,overflow:'hidden',alignContent:'center',filter:'drop-shadow(0 0 1vw black)'}}>
+            style={{backgroundColor: `rgba(0,0,0,0.5)`,borderRadius:`20px`,overflow:'hidden',alignContent:'center',filter:'drop-shadow(0 0 1vw black)'}}
+            className=''>
                 <a href={withPrefix(link.frontmatter.slug)}>
                   <img 
                   src={link.frontmatter.img.publicURL}

@@ -104,3 +104,29 @@ main {
     padding-bottom: 0.5%;
     padding-top: 0.5%;
 }
+
+
+
+@keyframes on-hover {
+    0% {
+      transform: none;
+    }
+    100% {
+      transform: scale( 101%, 101% );
+    }
+  }
+
+  .pickable {
+        
+    position: relative;
+    
+    width: 100%;
+    height: fit-content;
+
+    filter: drop-shadow(0 0 1vw black);
+  }
+
+  .pickable:hover {
+    animation: on-hover 0.2s;
+    transform: scale( 101%, 101% );
+  }

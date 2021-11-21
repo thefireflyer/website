@@ -24,29 +24,9 @@ const Section = styled.div`
 `
 
 const ImageDiv = styled.div`
-  position: relative;
-  
-  width: 100%;
-  height: fit-content;
-
-  filter: drop-shadow(0 0 1vw black);
 
   img {
     border-radius: 20px;
-  }
-
-  @keyframes on-hover {
-    0% {
-      transform: none;
-    }
-    100% {
-      transform: scale( 101%, 101% );
-    }
-  }
-
-  :hover {
-    animation: on-hover 0.2s;
-    transform: scale( 101%, 101% );
   }
 `
 
@@ -62,7 +42,7 @@ const Gallery = ({data}) => {
         <Section>
 
             {data.allMarkdownRemark.nodes.map( image => (
-              <ImageDiv>
+              <ImageDiv className='pickable'>
               <Link to={image.frontmatter.slug} >
               <img src={image.frontmatter.img.publicURL} style={{width:`100%`, minWidth:`300px`}}></img>
               </Link>
