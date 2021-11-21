@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-markdown-remark-frontmatter-slug-js",
+    "path": "/images/testimg4/",
+    "result": {"data":{"markdownRemark":{"html":"","frontmatter":{"date":"January 01, 2021","slug":"/images/testimg4","title":"testImg4","img":{"publicURL":"/test01/static/b33d3e07070af7cf8648978e24ed447f/test4.png"}}}},"pageContext":{"id":"b948cca5-9d9d-5af5-a056-7de536db2482","frontmatter__slug":"/images/testimg4","__params":{"frontmatter__slug":"images"}}},
+    "staticQueryHashes": ["3649515864"]}
