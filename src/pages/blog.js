@@ -41,7 +41,7 @@ export default Blog
 
 export const query = graphql`
   {
-    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Blog post"}}},sort: {fields: frontmatter___date}) {
+    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Blog post"}}},sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
         frontmatter {
           slug

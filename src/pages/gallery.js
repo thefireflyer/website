@@ -13,7 +13,7 @@ import BackgroundCover from '../components/BackgroundCover';
 const Section = styled.div`
   width: 80%;
   display: grid;
-  grid-auto-flow: row;
+  grid-auto-flow: row dense;
   grid-template-columns: auto auto auto;
   grid-gap: 1%;
   
@@ -92,7 +92,7 @@ export default Gallery
 `*/
 export const query = graphql`
   {
-    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Image post"}}},sort: {fields: frontmatter___date}) {
+    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Image post"}}},sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
         frontmatter {
           slug

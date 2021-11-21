@@ -83,8 +83,8 @@ export default HomePage
 export const featuredPostsQuery = graphql`
   query {
     allMarkdownRemark(
-      sort: {fields: frontmatter___date}
-      filter: {frontmatter: {title: {in: ["Test1", "Test5"]}}}
+      sort: {fields: frontmatter___date, order: ASC}
+      filter: {frontmatter: {title: {in: ["Test1", "testImg5"]}}}
     ) {
       nodes {
           id

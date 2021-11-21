@@ -1,7 +1,7 @@
 ---
-slug: "/images/test3"
-date: "2021-01-01"
-title: "Test5"
+slug: "/images/testimg5"
+date: "2021-11-21"
+title: "testImg5"
 type: "Image post"
-img: test4.png
+img: ../images/0001.png
 ---
