@@ -1,6 +1,9 @@
 
 $nav-bar-height: 2.5vw;
 
+::-webkit-scrollbar {
+    display: none;
+  }
 
 html {
     scroll-behavior: smooth;
