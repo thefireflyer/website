@@ -2,8 +2,8 @@ module.exports = {
   pathPrefix: `/test01`,
   siteMetadata: {
     siteUrl: "https://theflyingfire.github.io",
-    title: "Test01",
-    description: "just testing some stuff",
+    title: "thefireflyer",
+    description: "new react based website",
     author: "thefireflyer",
   },
   plugins: [

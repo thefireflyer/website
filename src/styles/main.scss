@@ -32,22 +32,22 @@ html {
     border-width: 0.2vh;
     border-style: var(--nav_bar_border_style, none);
     padding-top: $nav-bar-height - $nav-bar-height/2;
-    padding-left: 1.5vw;
+    padding-left: 3vw;
 
     display: grid;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
+    grid-template-columns: auto auto auto auto;
     //grid-template-columns: auto;
     //grid-template-rows: 0vw / auto;
     //grid-template-areas: 'test test test test test';
 }
 
 .nav-bar * {
-}
-
-.nav-bar #navBarIndex{
-    left: $nav-bar-height*2;
+ 
+    align-items: center;
     
 }
+
 
 .nav-bar h1 {
     color: white;
@@ -56,13 +56,24 @@ html {
     top: $nav-bar-height/5;
     font-size: $nav-bar-height/3*2;
     animation: nav-bar-element-drop-in 2s;
-    
+
+    width: 15%;
+    text-align: center;
 }
 
 .nav-bar img {
     width: $nav-bar-height;
     height: $nav-bar-height;
     animation: nav-bar-element-drop-in 2s;
+}
+
+.nav-logo img {
+    animation: nav-bar-element-drop-in 2s;
+    position: fixed;
+    width: $nav-bar-height/3*4;
+    top: 0;
+    left: 50vw - $nav-bar-height/3*4;
+    align-content: center;
 }
 
 body {

@@ -49,18 +49,8 @@ const Layout = ({children}) => {
     
       <div className="nav-bar" id="navBar">
         
-        <Link to="/">
-            <img
-            alt="Logo"
-            src={withPrefix("/icon.png")}
-            />
-
-          <h1 id="navBarIndex">{data.site.siteMetadata?.title || `Title`}</h1>
-        </Link>
-
-
-        <Link to="/home"><h1>Home</h1></Link>
-          
+        <Link to="/"><h1>Home</h1></Link>
+        
         <Link to="/gallery"><h1>Gallery</h1></Link>
 
         <Link to="/blog"><h1>Blog</h1></Link>
@@ -69,6 +59,12 @@ const Layout = ({children}) => {
            
         </div>
 
+        <Link to="/" className="nav-logo">
+          <img
+          alt="Logo"
+          src={withPrefix("/icon__.png")}
+          />
+        </Link>
 
 
 
