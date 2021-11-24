@@ -70,9 +70,9 @@ html {
 .nav-logo img {
     animation: nav-bar-element-drop-in 2s;
     position: fixed;
-    width: $nav-bar-height/3*4;
-    top: 0;
-    left: 50vw - $nav-bar-height/3*4;
+    width: $nav-bar-height*2;
+    top: -$nav-bar-height/2;
+    left: 50vw - $nav-bar-height*2;
     align-content: center;
 }
 
