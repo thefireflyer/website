@@ -10,6 +10,7 @@ import Img from "gatsby-image"
 
 import styled from "styled-components"
 
+
 const PopupSection = styled.div`
     overflow: hidden;
     position: fixed;
@@ -17,12 +18,12 @@ const PopupSection = styled.div`
     width: 100vw;
     top: 0;
     left: 0;
-    background: linear-gradient(45deg, rgb(245,245,240), rgb(245,240,250));
+    background: black;//linear-gradient(45deg, rgb(245,245,240), rgb(245,240,250));
     display: none;
     grid-auto-flow: row;
     grid-template-columns: auto auto;
     text-align: center;
-    color: black;
+    //color: black;
 
     @keyframes on-close {
         0% {
@@ -72,7 +73,7 @@ const CloseButton = styled.button`
     height: 10vh;
     background: rgba(0,0,0,0);
     border: 2px solid white;
-
+    color: white;
     .box {
         z-index: -1;
         position: absolute;
@@ -87,7 +88,7 @@ const CloseButton = styled.button`
 
     :hover {
         .box {
-            width: 20%;
+            width: 5%;
             -webkit-transition: width 1s;
         }
     }
@@ -105,7 +106,7 @@ const Popup = ({data}) => {
             }
         }}>
             <Section>
-                <img src={withPrefix('blm_icon.png')}></img>
+                <img src={withPrefix('blm_icon2.png')}></img>
             </Section>
             <Section>
                 <h1>Black</h1>
