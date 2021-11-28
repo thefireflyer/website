@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Link, withPrefix } from "gatsby";
 
 import "../styles/main.scss"
+import Popup from "./Popup";
 
 const Layout = ({children}) => {
   const data = useStaticQuery(graphql`
@@ -39,6 +40,13 @@ const Layout = ({children}) => {
       }
     })
 
+    if (getCookie("blm_popup") != "true")
+    {
+        document.getElementById('popup').style.display = 'grid';
+    }
+
+    setCookie("test", "test", 100);
+
   })
 
 
@@ -56,22 +64,54 @@ const Layout = ({children}) => {
         <Link to="/blog"><h1>Blog</h1></Link>
 
         <Link to="/about"><h1>About</h1></Link>
-           
-        </div>
+          
+      </div>
 
-        <Link to="/" className="nav-logo">
-          <img
-          alt="Logo"
-          src={withPrefix("/icon__.png")}
-          />
-        </Link>
+      <Link to="/" className="nav-logo">
+        <img
+        alt="Logo"
+        src={withPrefix("/icon__.png")}
+        />
+      </Link>
 
+      <Popup></Popup>
 
-
-
+        
     </>
   )
 }
  
 export default Layout
- 
+
+
+export function setCookie(cname, cvalue, exdays) {
+  if (getCookie("accepted_cookies") != "true")
+  {
+    alert("this website uses cookies");
+    
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = "accepted_cookies" + "=" + "true" + ";" + expires + ";path=/";
+  }
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+export function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
