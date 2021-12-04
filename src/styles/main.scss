@@ -143,3 +143,19 @@ main {
     animation: on-hover 0.2s;
     transform: scale( 101%, 101% );
   }
+
+.video {
+    position: relative;
+    width: 100vw;
+    height: 1080px;
+    iframe {
+        width: inherit;
+        height: inherit;
+    }
+    #cover {
+        position:absolute;
+        top:0;
+        width: inherit;
+        height: inherit;
+    }
+}

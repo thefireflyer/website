@@ -7,7 +7,7 @@ import Layout from '../components/layout';
 import Seo from '../components/seo';
 import Gallery from './gallery';
 import BackgroundCover from '../components/BackgroundCover';
-
+import Video from '../components/video';
 
 const HomePage = ({data}) => {
 
@@ -40,8 +40,15 @@ const HomePage = ({data}) => {
                     data.allMarkdownRemark.nodes.map(featured => {
                         return <div key={featured.id} class="featured-entry" style={{display:`block`}}>
                             <Link to={featured.frontmatter.slug}>
-                                <img src={withPrefix(featured.frontmatter.img.publicURL)} />
-                                
+                                <img
+                                style={{
+                                    display: (featured.frontmatter.videoSourceURL!="") ? "none" : "block",
+                                }}
+                                 src={withPrefix(featured.frontmatter.img.publicURL)} />
+                                <Video
+                                videoSrcURL={featured.frontmatter.videoSourceURL}
+                                videoTitle={featured.frontmatter.title}
+                                ></Video>
                                 <div class="featured-title">
                                     <h1>{featured.frontmatter.title}</h1>
                                 </div>
@@ -93,6 +100,7 @@ export const featuredPostsQuery = graphql`
           img {
             publicURL
           }
+          videoSourceURL
         }
       }
     }

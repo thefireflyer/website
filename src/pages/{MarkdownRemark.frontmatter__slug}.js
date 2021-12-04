@@ -2,6 +2,7 @@ import React from "react"
 import { withPrefix, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
+import Video from '../components/video';
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -24,6 +25,10 @@ export default function Template({
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        <Video
+            videoSrcURL={frontmatter.videoSourceURL}
+            videoTitle={frontmatter.title}
+        ></Video>
       </div>
     </div>
     </Layout>
@@ -41,6 +46,7 @@ export const pageQuery = graphql`
         img {
           publicURL
         }
+        videoSourceURL
       }
     }
   }
