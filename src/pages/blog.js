@@ -15,12 +15,12 @@ const Blog = ({data}) => {
         <Seo title="Blog" />
         <BackgroundCover>
         <div style={{marginBottom:`3.5vw`}}></div>
-        <div style={{width:`50%`, display:`grid`, gridAutoFlow:`row`, rowGap:`3%`, minWidth:`400px`}}>
+        <div style={{width:`50%`, display:`grid`, gridAutoFlow:`row`, rowGap:`3%`, minWidth:`350px`}}>
             {data.allMarkdownRemark.nodes.map(link => (
             <div
             key={link.frontmatter.slug}
             style={{backgroundColor: `rgba(0,0,0,0.5)`,borderRadius:`20px`,overflow:'hidden',alignContent:'center',filter:'drop-shadow(0 0 1vw black)'}}
-            className=''>
+            className='pickable'>
                 <a href={withPrefix(link.frontmatter.slug)}>
                   <img 
                   src={link.frontmatter.img.publicURL}

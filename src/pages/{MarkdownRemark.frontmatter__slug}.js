@@ -14,7 +14,7 @@ export default function Template({
       <div className="blog-post">
         <center>
         <img src={frontmatter.img.publicURL} 
-        style={{width:`80%`}}>
+        style={{width:`80%`,filter:'drop-shadow(0 0 1vw black)'}}>
 
         </img>
         </center>
