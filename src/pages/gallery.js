@@ -44,7 +44,7 @@ const Gallery = ({data}) => {
             {data.allMarkdownRemark.nodes.map( image => (
               <ImageDiv className='pickable'>
               <Link to={image.frontmatter.slug} >
-              <img src={image.frontmatter.img.publicURL} style={{width:`100%`, minWidth:`300px`}}></img>
+              <img src={withPrefix(image.frontmatter.img.publicURL)} style={{width:`100%`, minWidth:`300px`}}></img>
               </Link>
               </ImageDiv>
             ))}

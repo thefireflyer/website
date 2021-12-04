@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { withPrefix, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
 
@@ -13,7 +13,7 @@ export default function Template({
     <div className="blog-post-container">
       <div className="blog-post">
         <center>
-        <img src={frontmatter.img.publicURL} 
+        <img src={withPrefix(frontmatter.img.publicURL)} 
         style={{width:`80%`,filter:'drop-shadow(0 0 1vw black)'}}>
 
         </img>

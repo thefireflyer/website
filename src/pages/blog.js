@@ -23,7 +23,7 @@ const Blog = ({data}) => {
             className='pickable'>
                 <a href={withPrefix(link.frontmatter.slug)}>
                   <img 
-                  src={link.frontmatter.img.publicURL}
+                  src={withPrefix(link.frontmatter.img.publicURL)}
                   alt={link.frontmatter.title}
                   style={{width:`100%`}}></img>
                   <h1>{link.frontmatter.title}</h1>

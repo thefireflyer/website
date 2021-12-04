@@ -40,7 +40,7 @@ const HomePage = ({data}) => {
                     data.allMarkdownRemark.nodes.map(featured => {
                         return <div key={featured.id} class="featured-entry" style={{display:`block`}}>
                             <Link to={featured.frontmatter.slug}>
-                                <img src={featured.frontmatter.img.publicURL} />
+                                <img src={withPrefix(featured.frontmatter.img.publicURL)} />
                                 
                                 <div class="featured-title">
                                     <h1>{featured.frontmatter.title}</h1>
