@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-markdown-remark-frontmatter-slug-js",
+    "path": "/images/img13/",
+    "result": {"data":{"markdownRemark":{"html":"","frontmatter":{"date":"December 05, 2021","slug":"/images/img13","title":"","img":{"publicURL":"/static/d603ce74fb1652793c9be0e79460d69b/img13.JPG"},"videoSourceURL":""}}},"pageContext":{"id":"e1c15f19-a263-547b-8e6c-f577a756bdda","frontmatter__slug":"/images/img13","__params":{"frontmatter__slug":"images"}}},
+    "staticQueryHashes": ["3649515864","63159454"]}
