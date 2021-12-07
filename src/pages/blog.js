@@ -21,13 +21,13 @@ const Blog = ({data}) => {
             key={link.frontmatter.slug}
             style={{backgroundColor: `rgba(0,0,0,0.5)`,borderRadius:`20px`,overflow:'hidden',alignContent:'center',filter:'drop-shadow(0 0 1vw black)'}}
             className='pickable'>
-                <a href={withPrefix(link.frontmatter.slug)}>
+                <Link to={link.frontmatter.slug}>
                   <img 
-                  src={withPrefix(link.frontmatter.img.publicURL)}
+                  src={link.frontmatter.img.publicURL}
                   alt={link.frontmatter.title}
                   style={{width:`100%`}}></img>
                   <h1>{link.frontmatter.title}</h1>
-                </a>
+                </Link>
             </div>
             ))}
         </div>
