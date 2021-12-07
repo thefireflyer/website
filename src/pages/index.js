@@ -44,7 +44,7 @@ const HomePage = ({data}) => {
                                 style={{
                                     display: (featured.frontmatter.videoSourceURL!="") ? "none" : "block",
                                 }}
-                                 src={withPrefix(featured.frontmatter.img.publicURL)} />
+                                 src={featured.frontmatter.img.publicURL} />
                                 <Video
                                 videoSrcURL={featured.frontmatter.videoSourceURL}
                                 videoTitle={featured.frontmatter.title}

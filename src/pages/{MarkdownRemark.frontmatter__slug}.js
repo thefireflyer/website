@@ -17,7 +17,7 @@ export default function Template({
     <div className="blog-post-container">
       <div className="blog-post">
         <center>
-        <img src={withPrefix(frontmatter.img.publicURL)} 
+        <img src={frontmatter.img.publicURL} 
         style={{width:`80%`,filter:'drop-shadow(0 0 1vw black)'}}>
 
         </img>
