@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-markdown-remark-frontmatter-slug-js",
     "path": "/images/img3/",
-    "result": {"data":{"markdownRemark":{"html":"","frontmatter":{"date":"January 02, 2021","slug":"/images/img3","title":"","img":{"publicURL":"/static/5eef56ebad6f6ab72ff98f8cf5bf0e1b/img3.JPG"},"videoSourceURL":""}}},"pageContext":{"id":"0f95c4fa-3e96-5603-ad24-4ddbebc51f57","frontmatter__slug":"/images/img3","__params":{"frontmatter__slug":"images"}}},
+    "result": {"data":{"markdownRemark":{"html":"","frontmatter":{"date":"January 02, 2021","slug":"/images/img3","title":"","img":{"publicURL":"/test01/static/5eef56ebad6f6ab72ff98f8cf5bf0e1b/img3.JPG"},"videoSourceURL":""}}},"pageContext":{"id":"0f95c4fa-3e96-5603-ad24-4ddbebc51f57","frontmatter__slug":"/images/img3","__params":{"frontmatter__slug":"images"}}},
     "staticQueryHashes": ["3649515864","63159454"]}
