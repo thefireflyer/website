@@ -37,7 +37,7 @@ const HomePage = ({data}) => {
             <div class="featured">
 
                 {
-                    data.allMarkdownRemark.nodes.map(featured => {
+                    data.allMdx.nodes.map(featured => {
                         return <div key={featured.id} class="featured-entry" style={{display:`block`}}>
                             <Link to={featured.frontmatter.slug}>
                                 <img
@@ -88,7 +88,7 @@ export default HomePage
 
 export const featuredPostsQuery = graphql`
   query {
-    allMarkdownRemark(
+    allMdx(
       sort: {fields: frontmatter___date, order: ASC}
       filter: {frontmatter: {slug: {in: ["/images/img6", "/blog/test1"]}}}
     ) {

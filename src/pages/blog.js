@@ -16,7 +16,7 @@ const Blog = ({data}) => {
         <BackgroundCover>
         <div style={{marginBottom:`3.5vw`}}></div>
         <div style={{width:`50%`, display:`grid`, gridAutoFlow:`row`, rowGap:`3%`, minWidth:`350px`}}>
-            {data.allMarkdownRemark.nodes.map(link => (
+            {data.allMdx.nodes.map(link => (
             <div
             key={link.frontmatter.slug}
             style={{backgroundColor: `rgba(0,0,0,0.5)`,borderRadius:`20px`,overflow:'hidden',alignContent:'center',filter:'drop-shadow(0 0 1vw black)'}}
@@ -41,7 +41,7 @@ export default Blog
 
 export const query = graphql`
   {
-    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Blog post"}}},sort: {fields: frontmatter___date, order: DESC}) {
+    allMdx(filter: {frontmatter: {type: {eq: "Blog post"}}},sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
         frontmatter {
           slug

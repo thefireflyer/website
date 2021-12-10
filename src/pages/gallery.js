@@ -41,7 +41,7 @@ const Gallery = ({data}) => {
 
         <Section>
 
-            {data.allMarkdownRemark.nodes.map( image => (
+            {data.allMdx.nodes.map( image => (
               <ImageDiv className='pickable'>
               <Link to={image.frontmatter.slug} >
               <img src={image.frontmatter.img.publicURL} style={{width:`100%`, minWidth:`300px`}}></img>
@@ -59,7 +59,7 @@ export default Gallery
 
 export const query = graphql`
   {
-    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Image post"}}},sort: {fields: frontmatter___date, order: DESC}) {
+    allMdx(filter: {frontmatter: {type: {eq: "Image post"}}},sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
         frontmatter {
           slug
