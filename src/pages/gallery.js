@@ -57,18 +57,6 @@ const Gallery = ({data}) => {
 
 export default Gallery
 
-/*export const query = graphql`
-    query test2 {
-        allImageSharp {
-            nodes {
-              fluid {
-                src
-                originalName
-              }
-            }
-          }
-    }
-`*/
 export const query = graphql`
   {
     allMarkdownRemark(filter: {frontmatter: {type: {eq: "Image post"}}},sort: {fields: frontmatter___date, order: DESC}) {
