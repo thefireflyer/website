@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link, withPrefix } from "gatsby";
 
-import "../styles/main.scss"
+import "../styles/main.scss";
 import Popup from "./Popup";
 
 const Layout = ({children}) => {
@@ -25,6 +25,7 @@ const Layout = ({children}) => {
   `)
 
   React.useEffect(() => {
+    
     
     window.addEventListener('scroll', function() {
       let navBar = this.document.getElementById("navBar");
@@ -52,7 +53,6 @@ const Layout = ({children}) => {
 
   return (
     <>
-    
     <main>{children}</main>
     
       <div className="nav-bar" id="navBar">
