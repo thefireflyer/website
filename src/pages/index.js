@@ -35,7 +35,6 @@ const HomePage = ({data}) => {
     <Layout>
         <Seo title="Home" />
             <BackgroundCover>
-            <div className="contentMargin-mobile"></div>
             <div class="featured">
 
                 {

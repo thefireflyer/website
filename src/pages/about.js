@@ -48,13 +48,13 @@ const AboutPage = () => {
       <div style={{marginBottom:`3.5vw`}}></div>
 
 
+      <div className="contentMargin"></div>
       <AboutSection>
         
-      <div className="contentMargin"></div>
-        <div className='section'>
-        <img src={withPrefix('icon__.png')}></img>
-        <h1>About</h1>
 
+        <div className='section'>
+          <img src={withPrefix('icon__.png')}></img>
+          <h1>About</h1>
         </div>
         
         <div className='section'>
