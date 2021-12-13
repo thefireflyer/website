@@ -14,7 +14,7 @@ const Blog = ({data}) => {
     <Layout>
         <Seo title="Blog" />
         <BackgroundCover>
-        <div style={{marginBottom:`3.5vw`}}></div>
+      <div className="contentMargin"></div>
         <div style={{width:`50%`, display:`grid`, gridAutoFlow:`row`, rowGap:`3%`, minWidth:`350px`}}>
             {data.allMdx.nodes.map(link => (
             <div
@@ -23,7 +23,7 @@ const Blog = ({data}) => {
             className='pickable'>
                 <Link to={link.frontmatter.slug}>
                   <img 
-                  src={link.frontmatter.img.publicURL}
+                  src={link.frontmatter.img[0].publicURL}
                   alt={link.frontmatter.title}
                   style={{width:`100%`}}></img>
                   <h1>{link.frontmatter.title}</h1>

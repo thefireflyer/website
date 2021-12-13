@@ -50,6 +50,7 @@ const AboutPage = () => {
 
       <AboutSection>
         
+      <div className="contentMargin"></div>
         <div className='section'>
         <img src={withPrefix('icon__.png')}></img>
         <h1>About</h1>

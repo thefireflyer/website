@@ -3,6 +3,6 @@ slug: "/images/img12"
 date: "2021-08-01"
 title: ""
 type: "Image post"
-img: ../images/img12.2.JPG
+img: [../images/img12.2.JPG, ../images/img12.1.jpg]
 videoSourceURL: ""
 ---

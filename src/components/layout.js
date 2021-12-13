@@ -9,9 +9,11 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link, withPrefix } from "gatsby";
+import styled from "styled-components";
 
 import "../styles/main.scss";
 import Popup from "./Popup";
+
 
 const Layout = ({children}) => {
   const data = useStaticQuery(graphql`
@@ -54,7 +56,6 @@ const Layout = ({children}) => {
   return (
     <>
     <main>{children}</main>
-    
       <div className="nav-bar" id="navBar">
         
         <Link to="/"><h1>Home</h1></Link>
@@ -73,6 +74,39 @@ const Layout = ({children}) => {
         src={withPrefix("/icon__.png")}
         />
       </Link>
+
+      <div className="nav-bar-mobile">
+      <Link to="/" id="logo">
+        <img
+        alt="Logo"
+        src={withPrefix("/icon__.png")}
+        />
+      </Link>
+      <a id="menu-open" onClick={() => {
+        //open
+        document.getElementById("menu").style.width = `70vw`;
+        document.getElementById("menu-close").style.display = `block`;
+      }}><h1>&#9776;</h1></a>
+
+      <a  onClick={() => {
+        //close
+        document.getElementById("menu").style.width = `0`;
+        document.getElementById("menu-close").style.display = `none`;
+      }} id="menu-close"></a>  
+
+      <center id="menu">
+          
+        <Link to="/"><h1>Home</h1></Link>
+        
+        <Link to="/gallery"><h1>Gallery</h1></Link>
+
+        <Link to="/blog"><h1>Blog</h1></Link>
+
+        <Link to="/about"><h1>About</h1></Link>
+
+      </center>
+
+    </div>
 
       <Popup></Popup>
 

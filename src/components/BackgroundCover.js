@@ -2,8 +2,10 @@
  import PropTypes from "prop-types"
  import { useStaticQuery, graphql } from "gatsby"
  import { Link, withPrefix } from "gatsby";
+ import styled from "styled-components"
  
- 
+
+
  export default ({children}) => {
    
  
@@ -18,9 +20,11 @@
            left:`0`}}>
       
       <center>{children}</center>  
-  
-      <div style={{marginBottom:`5vh`}}></div>
+      
+      <div className="contentMargin"></div>
+
       </div>
+      
     )
   }
   

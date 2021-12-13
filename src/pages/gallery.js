@@ -37,14 +37,14 @@ const Gallery = ({data}) => {
     <Layout>
         <Seo title="Gallery" />
         <BackgroundCover>
-        <div style={{marginBottom:`3.5vw`}}></div>
+      <div className="contentMargin"></div>
 
         <Section>
 
             {data.allMdx.nodes.map( image => (
               <ImageDiv className='pickable'>
               <Link to={image.frontmatter.slug} >
-              <img src={image.frontmatter.img.publicURL} style={{width:`100%`, minWidth:`300px`}}></img>
+              <img src={image.frontmatter.img[0].publicURL} style={{width:`100%`, minWidth:`300px`}}></img>
               </Link>
               </ImageDiv>
             ))}

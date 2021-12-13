@@ -8,6 +8,7 @@ import Seo from '../components/seo';
 import Gallery from './gallery';
 import BackgroundCover from '../components/BackgroundCover';
 import Video from '../components/video';
+import styled from "styled-components";
 
 const HomePage = ({data}) => {
 
@@ -34,6 +35,7 @@ const HomePage = ({data}) => {
     <Layout>
         <Seo title="Home" />
             <BackgroundCover>
+            <div className="contentMargin-mobile"></div>
             <div class="featured">
 
                 {
@@ -44,7 +46,7 @@ const HomePage = ({data}) => {
                                 style={{
                                     display: (featured.frontmatter.videoSourceURL!="") ? "none" : "block",
                                 }}
-                                 src={withPrefix(featured.frontmatter.img.publicURL)} />
+                                 src={featured.frontmatter.img[0].publicURL} />
                                 <Video
                                 videoSrcURL={featured.frontmatter.videoSourceURL}
                                 videoTitle={featured.frontmatter.title}

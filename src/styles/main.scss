@@ -1,6 +1,8 @@
 
 $nav-bar-height: 2.5vw;
 
+
+
 ::-webkit-scrollbar {
     display: none;
   }
@@ -23,6 +25,15 @@ html {
     }
 }
 
+.contentMargin {
+    margin-bottom: 7vh;
+}
+@media only screen and (min-width: 900px) {
+    .contentMargin {
+        margin-bottom: $nav-bar-height + 1vw;
+    }
+  }
+
 .nav-bar {
     position: fixed;
     top: -1.1%;
@@ -37,13 +48,78 @@ html {
     padding-top: $nav-bar-height - $nav-bar-height/2;
     padding-left: 5vw;
 
-    display: grid;
+    display: none;
     grid-auto-flow: row;
     grid-template-columns: auto auto auto auto;
     //grid-template-columns: auto;
     //grid-template-rows: 0vw / auto;
     //grid-template-areas: 'test test test test test';
 }
+
+.nav-bar-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    height: 7vh;
+    width: 100vw;
+
+    overflow: hidden;
+
+    #logo {
+        position: absolute;
+        top: -2vh;
+        left: 2vw;
+        width: 20vh;
+    }
+
+    #menu-open h1 {
+        position: absolute;
+        top: -3.5vh;
+        right: 2vw;
+    }
+
+    #menu-close {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        display: none;
+    }
+
+    #menu {
+        position: fixed;
+        width: 0;
+        height: 100vh;
+
+        -webkit-transition: width 1s;
+
+        background-color: rgba(0, 0, 0, 0.7);
+
+        overflow: hidden;
+
+        backdrop-filter: blur(2px);
+
+    }
+    
+}
+
+@media only screen and (min-width: 900px) {
+    .nav-bar {
+        display: grid;
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    .nav-logo {
+        display: none;
+    }
+    .contentMargin-mobile {
+        margin-bottom: 7vh;
+    }
+    .nav-bar-mobile {
+        display: block;
+    }
+  }
 
 .nav-bar * {
  
