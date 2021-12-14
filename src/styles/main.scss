@@ -65,8 +65,12 @@ html {
     height: 7vh;
     width: 100vw;
 
+    transition: top 0.5s;
+
+    overflow:hidden;
 
     #logo {
+        filter: drop-shadow(0 0 0.5vw black);
         position: absolute;
         top: -2vh;
         left: 2vw;
@@ -74,6 +78,7 @@ html {
     }
 
     #menu-open h1 {
+        filter: drop-shadow(0 0 0.5vw black);
         position: absolute;
         top: -50%;
         right: 2vw;
@@ -81,6 +86,7 @@ html {
 
     #menu-close {
         position: fixed;
+        top: 0;
         width: 100vw;
         height: 100vh;
         display: none;
@@ -88,16 +94,24 @@ html {
 
     #menu {
         position: fixed;
+        top: 0;
         width: 0;
         height: 100vh;
 
-        -webkit-transition: width 1s;
+        transition: width 1s;
 
         background-color: rgba(0, 0, 0, 0.7);
 
         overflow: hidden;
 
         backdrop-filter: blur(5px);
+
+        border-right: 1px solid rebeccapurple;
+
+        a {
+            color: #999;
+            text-decoration: none;
+        }
 
     }
     

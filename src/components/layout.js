@@ -28,7 +28,8 @@ const Layout = ({children}) => {
 
   React.useEffect(() => {
     
-    
+    let lastScrollPos = window.scrollY;
+
     window.addEventListener('scroll', function() {
       let navBar = this.document.getElementById("navBar");
       if (window.pageYOffset > 10){
@@ -41,6 +42,19 @@ const Layout = ({children}) => {
         navBar.style.setProperty("--nav_bar_color", "rgba(0,0,0,0.0)");
         navBar.style.setProperty("--nav_bar_border_style", "none");
       }
+
+      let navBarMobile = this.document.getElementById("navBarMobile");
+      let currentScroll = window.scrollY;
+
+      if (currentScroll > lastScrollPos)
+      {
+        navBarMobile.style.top = `-14vh`;
+      }
+      else {
+        navBarMobile.style.top = `0`;
+      }
+
+      lastScrollPos = currentScroll;
     })
 
     if (getCookie("blm_popup") != "true")
@@ -75,7 +89,7 @@ const Layout = ({children}) => {
         />
       </Link>
 
-      <div className="nav-bar-mobile">
+      <div className="nav-bar-mobile" id="navBarMobile">
       <Link to="/" id="logo">
         <img
         alt="Logo"
