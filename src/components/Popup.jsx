@@ -3,8 +3,8 @@
 import * as React from 'react'
 import { withPrefix ,Link, useStaticQuery, graphql } from 'gatsby'
 
-import Layout, { setCookie, getCookie, test } from '../components/layout';
-import Seo from '../components/seo';
+import Layout, { setCookie, getCookie, test } from './layout';
+import Seo from './seo';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Img from "gatsby-image"
 
