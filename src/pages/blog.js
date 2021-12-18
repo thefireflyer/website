@@ -11,7 +11,7 @@ import BackgroundCover from '../components/BackgroundCover';
 
 const Blog = ({data}) => {    
     return (
-    <Layout>
+    <>
         <Seo title="Blog" />
         <BackgroundCover>
       <div className="contentMargin"></div>
@@ -33,7 +33,7 @@ const Blog = ({data}) => {
         </div>
         </BackgroundCover>
        
-    </Layout>
+    </>
     )
 }
 

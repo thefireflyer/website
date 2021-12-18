@@ -30,8 +30,12 @@ const Layout = ({children}) => {
     
     let lastScrollPos = window.scrollY;
 
+    let navBar = document.getElementById("navBar");
+    let navBarMobile = document.getElementById("navBarMobile");
+    //let navMenuMobile = document.getElementById("menu");
+    //navMenuMobile.style.width = '0';
+
     window.addEventListener('scroll', function() {
-      let navBar = this.document.getElementById("navBar");
       if (window.pageYOffset > 10){
         navBar.style.setProperty("--nav_bar_blur", "5px");
         navBar.style.setProperty("--nav_bar_color", "rgba(0,0,0,0.7)");
@@ -43,7 +47,6 @@ const Layout = ({children}) => {
         navBar.style.setProperty("--nav_bar_border_style", "none");
       }
 
-      let navBarMobile = this.document.getElementById("navBarMobile");
       let currentScroll = window.scrollY;
 
       if (currentScroll > lastScrollPos)
@@ -63,6 +66,9 @@ const Layout = ({children}) => {
     }
 
     setCookie("test", "test", 100);
+    
+    document.getElementById("menu").style.width = `0`;
+    document.getElementById("menu-close").style.display = `none`;
 
   })
 
@@ -71,15 +77,22 @@ const Layout = ({children}) => {
     <>
     <main>{children}</main>
       <div className="nav-bar" id="navBar">
+        <Link to="/" getProps={({ isCurrent }) => {
+          return isCurrent ? { style: {color: `white`} } : {}
+        }}><h1>Home</h1></Link>
         
-        <Link to="/"><h1>Home</h1></Link>
-        
-        <Link to="/gallery"><h1>Gallery</h1></Link>
+        <Link to="/gallery" getProps={({ isCurrent }) => {
+          return isCurrent ? { style: {color: `white`} } : {}
+        }}><h1>Gallery</h1></Link>
 
-        <Link to="/blog"><h1>Blog</h1></Link>
+        <Link to="/blog" getProps={({ isCurrent }) => {
+          return isCurrent ? { style: {color: `white`} } : {}
+        }}><h1>Blog</h1></Link>
 
-        <Link to="/about"><h1>About</h1></Link>
-          
+        <Link to="/about" getProps={({ isCurrent }) => {
+          return isCurrent ? { style: {color: `white`} } : {}
+        }}><h1>About</h1></Link>
+
       </div>
 
       <Link to="/" className="nav-logo">
@@ -102,21 +115,29 @@ const Layout = ({children}) => {
         document.getElementById("menu-close").style.display = `block`;
       }}><h1>&#9776;</h1></a>
 
-      <a  onClick={() => {
+      <a onClick={() => {
         //close
         document.getElementById("menu").style.width = `0`;
         document.getElementById("menu-close").style.display = `none`;
-      }} id="menu-close"></a>  
+      }} id="menu-close"></a>
 
       <center id="menu">
           
-        <Link to="/"><h1>Home</h1></Link>
+        <Link to="/" getProps={({ isCurrent }) => {
+          return isCurrent ? { style: {color: `white`} } : {}
+        }}><h1>Home</h1></Link>
         
-        <Link to="/gallery"><h1>Gallery</h1></Link>
+        <Link to="/gallery" getProps={({ isCurrent }) => {
+          return isCurrent ? { style: {color: `white`} } : {}
+        }}><h1>Gallery</h1></Link>
 
-        <Link to="/blog"><h1>Blog</h1></Link>
+        <Link to="/blog" getProps={({ isCurrent }) => {
+          return isCurrent ? { style: {color: `white`} } : {}
+        }}><h1>Blog</h1></Link>
 
-        <Link to="/about"><h1>About</h1></Link>
+        <Link to="/about" getProps={({ isCurrent }) => {
+          return isCurrent ? { style: {color: `white`} } : {}
+        }}><h1>About</h1></Link>
 
       </center>
 

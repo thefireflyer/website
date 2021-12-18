@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: `/test01`,
   siteMetadata: {
-    siteUrl: "https://test01.github.io",
+    siteUrl: "https://theflyingfire.github.io",
     title: "thefireflyer",
     description: "new react based website",
     author: "thefireflyer",
@@ -62,6 +62,12 @@ module.exports = {
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-styled-components`,
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/Layout.js`),
+      },
+    },
   ],
 };

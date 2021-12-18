@@ -8,7 +8,7 @@ import Seo from '../components/seo';
 
 const NotFoundPage = () => {
     return (
-    <Layout>
+    <>
         <Seo title="404" />
         <br></br>
         <center>
@@ -16,7 +16,7 @@ const NotFoundPage = () => {
             <h2>Page not found</h2>
             <Link to="/"><h3>Back to index page</h3></Link>
         </center>
-    </Layout>
+    </>
     )
 }
 

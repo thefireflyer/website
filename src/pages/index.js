@@ -32,7 +32,7 @@ const HomePage = ({data}) => {
     });
 
     return (
-    <Layout>
+    <>
         <Seo title="Home" />
             <BackgroundCover>
             <div class="featured">
@@ -81,7 +81,7 @@ const HomePage = ({data}) => {
             */}
 
             </BackgroundCover>
-    </Layout>
+    </>
     )
 }
 

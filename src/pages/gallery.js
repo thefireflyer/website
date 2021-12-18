@@ -34,7 +34,7 @@ const Gallery = ({data}) => {
     
     return (
         
-    <Layout>
+    <>
         <Seo title="Gallery" />
         <BackgroundCover>
       <div className="contentMargin"></div>
@@ -42,7 +42,7 @@ const Gallery = ({data}) => {
         <Section>
 
             {data.allMdx.nodes.map( image => (
-              <ImageDiv className='pickable'>
+              <ImageDiv className='pickable' key={image.frontmatter.slug}>
               <Link to={image.frontmatter.slug} >
               <img src={image.frontmatter.img[0].publicURL} style={{width:`100%`, minWidth:`300px`}}></img>
               </Link>
@@ -51,7 +51,7 @@ const Gallery = ({data}) => {
         </Section>
         </BackgroundCover>
 
-    </Layout>
+    </>
     )
 }
 

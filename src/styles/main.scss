@@ -54,6 +54,33 @@ html {
     //grid-template-columns: auto;
     //grid-template-rows: 0vw / auto;
     //grid-template-areas: 'test test test test test';
+
+
+    * {
+        align-items: center;
+    }
+    
+
+    a {
+        animation: nav-bar-element-drop-in 2s;
+        font-size: 1vw;
+        width: 15%;
+        text-align: center;
+
+        margin-top: -1.5vw;
+        margin-left: 4vw;
+
+        text-decoration: none;
+
+        color: #999;
+    }
+
+    img {
+        width: $nav-bar-height;
+        height: $nav-bar-height;
+        animation: nav-bar-element-drop-in 2s;
+    }
+    
 }
 
 .nav-bar-mobile {
@@ -133,31 +160,6 @@ html {
         display: block;
     }
   }
-
-.nav-bar * {
- 
-    align-items: center;
-    
-}
-
-
-.nav-bar h1 {
-    color: white;
-    
-    position: fixed;
-    top: $nav-bar-height/5;
-    font-size: $nav-bar-height/3*2;
-    animation: nav-bar-element-drop-in 2s;
-
-    width: 15%;
-    text-align: center;
-}
-
-.nav-bar img {
-    width: $nav-bar-height;
-    height: $nav-bar-height;
-    animation: nav-bar-element-drop-in 2s;
-}
 
 .nav-logo img {
     animation: nav-bar-element-drop-in 2s;

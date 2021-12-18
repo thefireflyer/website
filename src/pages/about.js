@@ -41,7 +41,7 @@ const AboutSection = styled.div`
 
 const AboutPage = () => {
   return (
-    <Layout>
+    <>
     <Seo title="About" />
     <BackgroundCover>
       
@@ -60,19 +60,19 @@ const AboutPage = () => {
         <div className='section'>
           
           <h1>Other accounts</h1>
-          <Link to="https://github.com/theflyingfire"><h1>Github</h1></Link>
-          <Link to="https://www.youtube.com/channel/UCJBJX_6j1520fVj73qi3RGQ"><h1>YouTube</h1></Link>
-          <Link to="https://thefireflyer.itch.io/"><h1>Itch.io</h1></Link>
+          <a href="https://github.com/theflyingfire"><h1>Github</h1></a>
+          <a href="https://www.youtube.com/channel/UCJBJX_6j1520fVj73qi3RGQ"><h1>YouTube</h1></a>
+          <a href="https://thefireflyer.itch.io/"><h1>Itch.io</h1></a>
 
           <h1>Active projects</h1>
 
-          <Link to='https://github.com/theflyingfire/AutoControlG'><h1>AutoControlG</h1></Link>
-          <Link to=''><h1>GoCiv</h1></Link>
-          <Link to=''><h1>First Tech Challenge</h1></Link>
+          <a href='https://github.com/theflyingfire/AutoControlG'><h1>AutoControlG</h1></a>
+          <a href=''><h1>GoCiv</h1></a>
+          <a href=''><h1>First Tech Challenge</h1></a>
 
           <h1>Misc</h1>
-          <Link to=''><h1>Email</h1></Link>
-          <Link to=''><h1>Resume</h1></Link>
+          <a href=''><h1>Email</h1></a>
+          <a href=''><h1>Resume</h1></a>
 
         </div>
 
@@ -80,7 +80,7 @@ const AboutPage = () => {
 
     </BackgroundCover>
         
-      </Layout>
+      </>
   )
 }
 

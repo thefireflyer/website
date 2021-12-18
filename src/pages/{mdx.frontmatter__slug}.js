@@ -11,29 +11,29 @@ export default function Template({
 }) {
   const { frontmatter, body } = data.mdx
   return (
-      <Layout>
+      <>
       <Seo title={frontmatter?.title || ""} />
-        
+
       <div className="contentMargin"></div>
-    <div className="blog-post-container">
-      <div className="blog-post">
-        <center>
-        {frontmatter.img.map( image => (
-          <img src={image.publicURL} 
-          style={{width:`80%`,filter:'drop-shadow(0 0 1vw black)'}}>
-          </img>
-        ))}
-        </center>
-        <h1>{frontmatter?.title || ""}</h1>
-        <h2>{frontmatter?.date || ""}</h2>
-        <MDXRenderer>{body}</MDXRenderer>
-        <Video
-            videoSrcURL={frontmatter.videoSourceURL}
-            videoTitle={frontmatter.title}
-        ></Video>
+      <div className="blog-post-container">
+        <div className="blog-post">
+          <center>
+            {frontmatter.img.map( image => (
+              <img src={image.publicURL} key={image.publicURL}
+              style={{width:`80%`,filter:'drop-shadow(0 0 1vw black)'}}>
+              </img>
+            ))}
+          </center>
+          <h1>{frontmatter?.title || ""}</h1>
+          <h2>{frontmatter?.date || ""}</h2>
+          <MDXRenderer>{body}</MDXRenderer>
+          <Video
+              videoSrcURL={frontmatter.videoSourceURL}
+              videoTitle={frontmatter.title}
+          ></Video>
+        </div>
       </div>
-    </div>
-    </Layout>
+    </>
   )
 }
 
