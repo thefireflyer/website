@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import BackgroundCover from '../components/BackgroundCover';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 
 
@@ -22,10 +23,10 @@ const Blog = ({data}) => {
             style={{backgroundColor: `rgba(0,0,0,0.5)`,borderRadius:`20px`,overflow:'hidden',alignContent:'center',filter:'drop-shadow(0 0 1vw black)'}}
             className='pickable'>
                 <Link to={link.frontmatter.slug}>
-                  <img 
-                  src={link.frontmatter.img[0].publicURL}
+                  <GatsbyImage
+                  image={getImage(link.frontmatter.img[0].childImageSharp)}
                   alt={link.frontmatter.title}
-                  style={{width:`100%`}}></img>
+                  style={{width:`100%`}}></GatsbyImage>
                   <h1>{link.frontmatter.title}</h1>
                 </Link>
             </div>
@@ -48,6 +49,12 @@ export const query = graphql`
           title
           img {
             publicURL
+            childImageSharp {
+              gatsbyImageData(
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
           }
         }
       }

@@ -9,6 +9,7 @@ import Gallery from './gallery';
 import BackgroundCover from '../components/BackgroundCover';
 import Video from '../components/video';
 import styled from "styled-components";
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const HomePage = ({data}) => {
 
@@ -41,11 +42,11 @@ const HomePage = ({data}) => {
                     data.allMdx.nodes.map(featured => {
                         return <div key={featured.id} class="featured-entry" style={{display:`block`}}>
                             <Link to={featured.frontmatter.slug}>
-                                <img
+                                <GatsbyImage
                                 style={{
                                     display: (featured.frontmatter.videoSourceURL!="") ? "none" : "block",
                                 }}
-                                 src={featured.frontmatter.img[0].publicURL} />
+                                 image={getImage(featured.frontmatter.img[0].childImageSharp)} />
                                 <Video
                                 videoSrcURL={featured.frontmatter.videoSourceURL}
                                 videoTitle={featured.frontmatter.title}
@@ -100,6 +101,12 @@ export const featuredPostsQuery = graphql`
           slug
           img {
             publicURL
+            childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
           }
           videoSourceURL
         }

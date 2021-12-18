@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import Video from '../components/video';
 import Seo from '../components/seo';
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -19,9 +20,9 @@ export default function Template({
         <div className="blog-post">
           <center>
             {frontmatter.img.map( image => (
-              <img src={image.publicURL} key={image.publicURL}
+              <GatsbyImage image={getImage(image.childImageSharp)} key={image.publicURL}
               style={{width:`80%`,filter:'drop-shadow(0 0 1vw black)'}}>
-              </img>
+              </GatsbyImage>
             ))}
           </center>
           <h1>{frontmatter?.title || ""}</h1>
@@ -47,6 +48,12 @@ export const pageQuery = graphql`
         title
         img {
           publicURL
+          childImageSharp {
+            gatsbyImageData(
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
         }
         videoSourceURL
       }

@@ -6,7 +6,7 @@ import { withPrefix ,Link, useStaticQuery, graphql } from 'gatsby'
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import Img from "gatsby-image"
+import { StaticImage } from "gatsby-plugin-image";
 
 import styled from "styled-components"
 import BackgroundCover from '../components/BackgroundCover';
@@ -44,7 +44,15 @@ const Gallery = ({data}) => {
             {data.allMdx.nodes.map( image => (
               <ImageDiv className='pickable' key={image.frontmatter.slug}>
               <Link to={image.frontmatter.slug} >
-              <img src={image.frontmatter.img[0].publicURL} style={{width:`100%`, minWidth:`300px`}}></img>
+              <GatsbyImage image={getImage(image.frontmatter.img[0].childImageSharp)} style={{width:`100%`, minWidth:`300px`}}></GatsbyImage>
+              {/*<StaticImage
+                src={image.frontmatter.img[0].childImageSharp.fluid.src}
+                alt="A dinosaur"
+                placeholder="blurred"
+                layout="fixed"
+                width={200}
+                height={200}
+              />*/}
               </Link>
               </ImageDiv>
             ))}
@@ -66,6 +74,12 @@ export const query = graphql`
           title
           img {
             publicURL
+            childImageSharp {
+              gatsbyImageData(
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
           }
         }
       }
