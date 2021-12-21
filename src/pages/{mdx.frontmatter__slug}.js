@@ -6,6 +6,18 @@ import Video from '../components/video';
 import Seo from '../components/seo';
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import styled from "styled-components"
+
+//(image.childImageSharp.fixed.aspectRatio > 1)?`80%`:`auto`
+
+const ImageDiv = styled.div`
+  width:80%;
+  filter:drop-shadow(0 0 1vw black);
+
+  @media only screen and (max-width: 900px) {
+    min-width: 95vw;
+  }
+`
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -20,9 +32,10 @@ export default function Template({
         <div className="blog-post">
           <center>
             {frontmatter.img.map( image => (
-              <GatsbyImage image={getImage(image.childImageSharp)} key={image.publicURL}
-              style={{width:`80%`,filter:'drop-shadow(0 0 1vw black)'}}>
-              </GatsbyImage>
+              <ImageDiv style={{
+                width:(image.childImageSharp.fixed.aspectRatio > 1)?`80%`:`25%`
+              }}><GatsbyImage image={getImage(image.childImageSharp)} key={image.publicURL}>
+              </GatsbyImage></ImageDiv>
             ))}
           </center>
           <h1>{frontmatter?.title || ""}</h1>
@@ -53,6 +66,9 @@ export const pageQuery = graphql`
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )
+            fixed {
+              aspectRatio
+            }
           }
         }
         videoSourceURL

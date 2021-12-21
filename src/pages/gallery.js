@@ -27,6 +27,7 @@ const ImageDiv = styled.div`
 
   img {
     border-radius: 20px;
+    object-fit: cover;
   }
 `
 
@@ -42,9 +43,14 @@ const Gallery = ({data}) => {
         <Section>
 
             {data.allMdx.nodes.map( image => (
-              <ImageDiv className='pickable' key={image.frontmatter.slug}>
+              <ImageDiv className='pickable' key={image.frontmatter.slug} style={{
+               gridRowEnd:(image.frontmatter.img[0].childImageSharp.fixed.aspectRatio > 1)?`auto`:`span 3`
+              }}>
               <Link to={image.frontmatter.slug} >
-              <GatsbyImage image={getImage(image.frontmatter.img[0].childImageSharp)} style={{width:`100%`, minWidth:`300px`}}></GatsbyImage>
+              <GatsbyImage
+              image={getImage(image.frontmatter.img[0].childImageSharp)}
+              style={{width:`100%`,
+               minWidth:`300px`}}></GatsbyImage>
               {/*<StaticImage
                 src={image.frontmatter.img[0].childImageSharp.fluid.src}
                 alt="A dinosaur"
@@ -79,6 +85,9 @@ export const query = graphql`
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF]
               )
+              fixed {
+                aspectRatio
+              }
             }
           }
         }
