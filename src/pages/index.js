@@ -11,12 +11,13 @@ import Video from '../components/video';
 import styled from "styled-components";
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
+
 const HomePage = ({data}) => {
 
     React.useLayoutEffect(() => {
         
     let handle = window.setInterval(update_featured_entry, 3000);
-    let currentIndex = 0
+    let currentIndex = -1
     let entries = document.getElementsByClassName("featured-entry")
 
     function update_featured_entry() {
@@ -37,10 +38,9 @@ const HomePage = ({data}) => {
         <Seo title="Home" />
             <BackgroundCover>
             <div class="featured">
-
                 {
                     data.allMdx.nodes.map(featured => {
-                        return <div key={featured.id} class="featured-entry" style={{display:`block`}}>
+                        return <div key={featured.id} class="featured-entry">
                             <Link to={featured.frontmatter.slug}>
                                 <GatsbyImage
                                 style={{
@@ -88,10 +88,13 @@ const HomePage = ({data}) => {
 
 export default HomePage
 
+//filter: {frontmatter: {slug: {in: ["/images/img6", "/blog/test1"]}}}
+
 export const featuredPostsQuery = graphql`
   query {
     allMdx(
-      sort: {fields: frontmatter___date, order: ASC}
+      sort: {fields: frontmatter___date, order: DESC}
+      limit: 3
       filter: {frontmatter: {slug: {in: ["/images/img6", "/blog/test1"]}}}
     ) {
       nodes {
