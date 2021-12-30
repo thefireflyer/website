@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://theflyingfire.github.io",
     title: "thefireflyer",
-    description: "new react based website",
+    description: "projects/blog/gallery",
     author: "thefireflyer",
   },
   plugins: [
@@ -22,7 +22,7 @@ module.exports = {
       resolve: `gatsby-plugin-sharp`,
       options: {
         // Defaults used for gatsbyImageData and StaticImage
-        defaults: {},
+        defaults: {jpgOptions: {progressive: true}},
         // Set to false to allow builds to continue on image errors
         failOnError: true
       },

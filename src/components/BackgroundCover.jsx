@@ -6,12 +6,12 @@
  
 
 
- export default ({children}) => {
+ export default ({background, children}) => {
    
  
     return (
       <div  style={{
-          //background:`linear-gradient(140deg, magenta, aqua) no-repeat fixed`,
+          background:background,//`linear-gradient(140deg, magenta, aqua) no-repeat fixed`,
           minHeight:`100vh`,
           width:`100%`,
           height:`fit-content`,

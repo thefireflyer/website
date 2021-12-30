@@ -25,7 +25,7 @@ export default function Template({
   const { frontmatter, body } = data.mdx
   return (
       <>
-      <Seo title={frontmatter?.title || ""} />
+      <Seo title={frontmatter?.title || " "} />
 
       <div className="contentMargin"></div>
       <div className="blog-post-container">

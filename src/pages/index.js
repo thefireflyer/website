@@ -36,7 +36,7 @@ const HomePage = ({data}) => {
     return (
     <>
         <Seo title="Home" />
-            <BackgroundCover>
+            <BackgroundCover /*background={`linear-gradient(140deg, magenta, aqua) no-repeat fixed`}*/>
             <div class="featured">
                 {
                     data.allMdx.nodes.map(featured => {

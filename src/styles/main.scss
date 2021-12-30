@@ -193,11 +193,11 @@ main {
     margin: 0 auto;
     filter: drop-shadow(0 0 1vh black);
     display:none;
-    height:100vh;
+    max-height:99.5vh;
     overflow: hidden;
 
     @media only screen and (max-width: 900px) {
-        height: 30vh;
+        max-height: 30vh;
     }
         
     img {
