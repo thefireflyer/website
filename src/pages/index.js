@@ -18,13 +18,15 @@ const HomePage = ({data}) => {
         
     let handle = window.setInterval(update_featured_entry, 3000);
     let currentIndex = -1
+    let featured = document.getElementById("featured");
     let entries = document.getElementsByClassName("featured-entry")
 
     function update_featured_entry() {
         currentIndex = (currentIndex + 1) % entries.length
+        featured.style.left = "-"+currentIndex*100+'vw';
         for(var i = 0; i < entries.length; i++)
         {
-            entries.item(i).style.display = i==currentIndex?`block`:`none`
+            //entries.item(i).style.display = i==currentIndex?`block`:`none`
         }
     }
 
@@ -37,27 +39,29 @@ const HomePage = ({data}) => {
     <>
         <Seo title="Home" />
             <BackgroundCover /*background={`linear-gradient(140deg, magenta, aqua) no-repeat fixed`}*/>
-            <div class="featured">
-                {
-                    data.allMdx.nodes.map(featured => {
-                        return <div key={featured.id} class="featured-entry">
-                            <Link to={featured.frontmatter.slug}>
-                                <GatsbyImage
-                                style={{
-                                    display: (featured.frontmatter.videoSourceURL!="") ? "none" : "block",
-                                }}
-                                 image={getImage(featured.frontmatter.img[0].childImageSharp)} />
-                                <Video
-                                videoSrcURL={featured.frontmatter.videoSourceURL}
-                                videoTitle={featured.frontmatter.title}
-                                ></Video>
-                                <div class="featured-title">
-                                    <h1>{featured.frontmatter.title}</h1>
-                                </div>
-                            </Link>
-                        </div>
-                    })
-                }
+            <div  class="featured" >
+                <div id="featured">
+                    {
+                        data.allMdx.nodes.map(featured => {
+                            return <div key={featured.id} class="featured-entry">
+                                <Link to={featured.frontmatter.slug}>
+                                    <GatsbyImage
+                                    style={{
+                                        display: (featured.frontmatter.videoSourceURL!="") ? "none" : "block",
+                                    }}
+                                    image={getImage(featured.frontmatter.img[0].childImageSharp)} />
+                                    <Video
+                                    videoSrcURL={featured.frontmatter.videoSourceURL}
+                                    videoTitle={featured.frontmatter.title}
+                                    ></Video>
+                                    <div class="featured-title">
+                                        <h1>{featured.frontmatter.title}</h1>
+                                    </div>
+                                </Link>
+                            </div>
+                        })
+                    }
+                </div>
             </div>
 
             <div class="About-section" style={{textAlign:`center`}}>
