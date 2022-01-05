@@ -139,6 +139,14 @@ const Layout = ({children}) => {
           return isCurrent ? { style: {color: `white`} } : {}
         }}><h1>About</h1></Link>
 
+        <Link to="/scripts" getProps={({ isCurrent }) => {
+          return isCurrent ? { style: {color: `white`} } : {}
+        }}><h1>Scripts</h1></Link>
+
+        <Link to="/cabin" getProps={({ isCurrent }) => {
+          return isCurrent ? { style: {color: `white`} } : {}
+        }}><h1>Cabin↪</h1></Link>
+
       </center>
 
     </div>
