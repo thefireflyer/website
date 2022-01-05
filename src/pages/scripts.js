@@ -13,7 +13,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const ScriptDiv = styled.div`
     border-radius: 20px;
-    background: linear-gradient(120deg, hsl(300, 100%, 25%), hsl(180, 100%, 25%));
+    //background: linear-gradient(120deg, hsl(300, 100%, 25%), hsl(180, 100%, 25%));
+    background-color: black;
     height: fit-content;
     width: 50vw;
     filter: drop-shadow(0 0 1vw black);
@@ -37,6 +38,9 @@ const ScriptDiv = styled.div`
         height: 5vh;
         filter: drop-shadow(0 0 0.5vw black);
         margin-bottom: 0.5vh;
+        background-color: #111;
+        border: none;
+        color: white;
     }
 
     @media only screen and (max-width: 900px) {
