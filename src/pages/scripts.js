@@ -25,6 +25,10 @@ const ScriptDiv = styled.div`
         filter: drop-shadow(0 0 0.5vw black);
     }
 
+    #output {
+        word-wrap:break-word;
+    }
+
     #run h1 {
         text-align: center;
         :hover {
@@ -75,13 +79,77 @@ const ScriptsPage = ({data}) => {
             <div className="contentMargin"></div>
  
             <h1>Scripts</h1>
-            
+
+
+            <Script name={`ideal-rocket-calculator`} callback={() => {
+                
+            }}>
+
+            </Script>
+
+            <Script name={`coordinate-system-calculator`} callback={() => {
+                
+            }}>
+
+            </Script>
+
+            <Script name={`triangle-solver`} callback={() => {
+
+            }}>
+            </Script>
+
             
 
-            <Script name={`wordsearch-solver`} callback={() => {
+            <Script name={`time-dilation-calculator`} callback={() => {
+                let scriptDiv = document.getElementById("time-dilation-calculator")
+                let period_one = scriptDiv.querySelector("#period1").value
+                let period_two = scriptDiv.querySelector("#period2").value
+                let output = scriptDiv.querySelector("#output")
+                const c = 299792458;
+                let short_period = (period_one<period_two)?period_one:period_two;
+                let long_period = (period_one>period_two)?period_one:period_two;
+                let speed = ((1-(short_period/long_period)**2)*c**2)**(1/2)
+
+                const G = 6.67430 *10**-11
+                
+                let mass = (1-(short_period/long_period)**2)*c**2/2/G
+
+                output.innerHTML = speed + " m/s relative to the faster clocks frame of reference or " + (speed/c*100)+`% the speed of light <br/>
+                <br/>`+mass+` kg compacted into a sphere tangential to the reference point with a radius of one meter`
+                
+            }}>
+                <input id="period1" type={`number`} placeholder='period of first clock'></input>
+                <input id="period2" type={`number`} placeholder='period of second clock'></input>
+            </Script>
+
+            <Script name={`token-generator`} callback={() => {
+                let scriptDiv = document.getElementById("token-generator")
+                let input = scriptDiv.querySelector("#input").value
+                let output = scriptDiv.querySelector("#output")
+                let res = ""
+                const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/!@#$%^&*()-_=+{}[];:,.<>/?".split("");
+
+                for ( var i = 0; i < input; i++ ) {
+                    res += characters[Math.floor(Math.random() * characters.length)];
+                }
+                output.innerHTML = res
+            }}>
+                <input type={`number`} min={0} id='input' placeholder='length'></input>
+            </Script>
+
+            {/*<Script name={`test-demo-2`} callback={() => {
+                let scriptDiv = document.getElementById("test-demo-2")
+                let input = scriptDiv.querySelector("#input")
+                let output = scriptDiv.querySelector("#output")
+                output.innerHTML = input.value
+            }}>
+                <input id="input" type={`text`} placeholder='demo text'></input>
+            </Script>*/}
+
+            <Script name={`word-searcher`} callback={() => {
                 
                 //----------------------------------------
-                let scriptDiv = document.getElementById("wordsearch-solver")
+                let scriptDiv = document.getElementById("word-searcher")
                 let input = scriptDiv.querySelector("#input").value.toLowerCase()
                 let words = scriptDiv.querySelector("#words").value.toLowerCase()
                 let output = scriptDiv.querySelector("#output")
@@ -232,37 +300,6 @@ XENSRXZM
         `}*/></textarea>
             <input id="words" type={`text`} placeholder='words,seperated,by,commas'
              /*value={`water,test,slash,potato,purple,avoid,master,sneak`}*/></input>
-            </Script>
-
-            <Script name={`time-dilation-calculator`} callback={() => {
-                let scriptDiv = document.getElementById("time-dilation-calculator")
-                let period_one = scriptDiv.querySelector("#period1").value
-                let period_two = scriptDiv.querySelector("#period2").value
-                let output = scriptDiv.querySelector("#output")
-                const c = 299792458;
-                let short_period = (period_one<period_two)?period_one:period_two;
-                let long_period = (period_one>period_two)?period_one:period_two;
-                let speed = ((1-(short_period/long_period)**2)*c**2)**(1/2)
-
-                const G = 6.67430 *10**-11
-                
-                let mass = (1-(short_period/long_period)**2)*c**2/2/G
-
-                output.innerHTML = speed + " m/s relative to the faster clocks frame of reference or " + (speed/c*100)+`% the speed of light <br/>
-                <br/>`+mass+` kg compacted into a sphere tangential to the reference point with a radius of one meter`
-                
-            }}>
-                <input id="period1" type={`number`} placeholder='period of first clock'></input>
-                <input id="period2" type={`number`} placeholder='period of second clock'></input>
-            </Script>
-
-            <Script name={`test-demo-2`} callback={() => {
-                let scriptDiv = document.getElementById("test-demo-2")
-                let input = scriptDiv.querySelector("#input")
-                let output = scriptDiv.querySelector("#output")
-                output.innerHTML = input.value
-            }}>
-                <input id="input" type={`text`} placeholder='demo text'></input>
             </Script>
 
         </BackgroundCover>
