@@ -29,7 +29,7 @@ const ScriptDiv = styled.div`
         word-wrap:break-word;
     }
 
-    #run h1 {
+    #run {
         text-align: center;
         :hover {
             color: orange;
@@ -96,6 +96,7 @@ const ScriptsPage = ({data}) => {
             <Script name={`triangle-solver`} callback={() => {
 
             }}>
+
             </Script>
 
             
@@ -122,12 +123,13 @@ const ScriptsPage = ({data}) => {
                 <input id="period2" type={`number`} placeholder='period of second clock'></input>
             </Script>
 
+
             <Script name={`token-generator`} callback={() => {
                 let scriptDiv = document.getElementById("token-generator")
                 let input = scriptDiv.querySelector("#input").value
                 let output = scriptDiv.querySelector("#output")
                 let res = ""
-                const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/!@#$%^&*()-_=+{}[];:,.<>/?".split("");
+                const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/!@#$%^&*()-_=+{}[];:,.<>/?|'\"".split("");
 
                 for ( var i = 0; i < input; i++ ) {
                     res += characters[Math.floor(Math.random() * characters.length)];
@@ -136,6 +138,7 @@ const ScriptsPage = ({data}) => {
             }}>
                 <input type={`number`} min={0} id='input' placeholder='length'></input>
             </Script>
+
 
             {/*<Script name={`test-demo-2`} callback={() => {
                 let scriptDiv = document.getElementById("test-demo-2")
@@ -146,6 +149,7 @@ const ScriptsPage = ({data}) => {
                 <input id="input" type={`text`} placeholder='demo text'></input>
             </Script>*/}
 
+
             <Script name={`word-searcher`} callback={() => {
                 
                 //----------------------------------------
@@ -153,6 +157,8 @@ const ScriptsPage = ({data}) => {
                 let input = scriptDiv.querySelector("#input").value.toLowerCase()
                 let words = scriptDiv.querySelector("#words").value.toLowerCase()
                 let output = scriptDiv.querySelector("#output")
+                input = input.replaceAll(" ", "")
+                words = words.replaceAll(" ", "")
                 let rows = input.split(`
 `)              
                 let cols = []
