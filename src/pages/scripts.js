@@ -21,26 +21,28 @@ const ScriptDiv = styled.div`
     overflow-x: hidden;
     overflow-y: scroll;
 
-    h1 {
+    * {
         filter: drop-shadow(0 0 0.5vw black);
     }
 
     #run h1 {
-        filter: drop-shadow(0 0 0.5vw black);
         text-align: center;
         :hover {
             color: orange;
         }
     }
 
-    input {
+    input, textarea {
         width: 100%;
         height: 5vh;
-        filter: drop-shadow(0 0 0.5vw black);
         margin-bottom: 0.5vh;
-        background-color: #111;
+        background-color: black;
         border: none;
         color: white;
+    }
+
+    textarea {
+        height: 16vh;
     }
 
     @media only screen and (max-width: 900px) {
@@ -54,10 +56,10 @@ const Script = ({name, callback, children}) => {
     return (
         <>
             <ScriptDiv id={name}>
-                <h1>{name.replaceAll("-", " ")}</h1>
+                <h2>{name.replaceAll("-", " ")}</h2>
                     {children}
-                    <h3 id="output"></h3>
-                    <a id="run" onClick={callback}><h1>Run</h1></a>
+                    <h4 id="output"></h4>
+                    <a id="run" onClick={callback}><h2>Run</h2></a>
             </ScriptDiv>
             <div className="contentMargin"></div>
         </>
@@ -74,6 +76,164 @@ const ScriptsPage = ({data}) => {
  
             <h1>Scripts</h1>
             
+            
+
+            <Script name={`wordsearch-solver`} callback={() => {
+                
+                //----------------------------------------
+                let scriptDiv = document.getElementById("wordsearch-solver")
+                let input = scriptDiv.querySelector("#input").value.toLowerCase()
+                let words = scriptDiv.querySelector("#words").value.toLowerCase()
+                let output = scriptDiv.querySelector("#output")
+                let rows = input.split(`
+`)              
+                let cols = []
+                let diagonals = []
+                let foundWords = []
+                words = words.split(',')
+                console.log(words)
+                console.log(rows)
+                
+                //----------------------------------------
+                //remove empty rows
+
+                rows = rows.filter(row => {
+                   if (row != "")
+                    {
+                        return true
+                    }
+                    else {
+                        return false
+                    }
+                });
+
+                //----------------------------------------
+                //search horz
+                rows.forEach(row => {
+                    let reversed = row.split("").reverse().join("");
+                    console.log(reversed)
+                    words.forEach(word => {
+                         if (row.includes(word))
+                         {
+                             console.log(word+" found in "+row)
+                             foundWords.push({word:word,container:row,start:row.search(word), type:"HORIZONTAL"})
+                         }
+                         if (reversed.includes(word))
+                         {
+                             console.log(word+" found in "+reversed + " (REVERSED)")
+                             foundWords.push({word:word,container:reversed,start:reversed.search(word), type:"HORIZONTAL-REVERSED"})
+                         }
+                    })
+                });
+                
+                //----------------------------------------
+                //search vert
+                for (let i = 0; i < rows.length; i++){
+                    rows.forEach(row => {
+                        if (cols[i] == null){
+                            cols[i] = ""
+                        }
+                        cols[i] += (row.charAt(i))
+                    })
+                }
+
+                console.log(cols)
+                cols.forEach(cols => {
+                    let reversed = cols.split("").reverse().join("");
+                    console.log(reversed)
+                    words.forEach(word => {
+                         if (cols.includes(word))
+                         {
+                             console.log(word+" found in "+cols)
+                             foundWords.push({word:word,container:cols,start:cols.search(word), type:"VERTICAL"})
+                        }
+                         if (reversed.includes(word))
+                         {
+                             console.log(word+" found in "+reversed + " (REVERSED)")
+                             foundWords.push({word:word,container:reversed,start:reversed.search(word), type:"VERTICAL-REVERSED"})
+                        }
+                    })
+                });
+
+                //----------------------------------------
+                //search diagonals
+                function getDiagonals(x, y){
+                    console.log(x)
+                    diagonals[x] = ""
+                    for (let i = 0; i < rows.length; i++)
+                    {
+                        console.log(rows[i+x]?.charAt(i+y)||"row doesnt exist")
+                        diagonals[x] += rows[i+x]?.charAt(i+y)||""
+                    }
+                    console.log("-------------")
+                    diagonals[rows.length+x] = ""
+                    for (let i = 0; i < rows.length; i++)
+                    {
+                        console.log(rows[i+x]?.charAt(rows.length-i-1-y)||"row doesnt exist")
+                        diagonals[rows.length+x] += rows[i+x]?.charAt(rows.length-i-1-y)||""
+                    }
+                    console.log("==============")
+                }
+                for (let x = -rows.length; x < rows.length; x++)
+                {
+                        getDiagonals(x,0)
+                }
+
+                diagonals.forEach(diagonal => {
+                    let reversed = diagonal.split("").reverse().join("");
+                    //console.log(diagonal)
+                    //console.log(reversed)
+                    words.forEach(word => {
+                         if (diagonal.includes(word))
+                         {
+                             console.log(word+" found in "+diagonal)
+                             foundWords.push({word:word,container:diagonal,start:diagonal.search(word), type:"DIAGONAL"})
+                        }
+                         if (reversed.includes(word))
+                         {
+                             console.log(word+" found in "+reversed + " (REVERSED)")
+                             foundWords.push({word:word,container:reversed,start:reversed.search(word), type:"DIAGONAL-REVERSED"})
+                        }
+                    })
+                })
+
+                console.log(diagonals)
+                //----------------------------------------
+
+
+                console.log(foundWords)
+
+                let res = ""
+                foundWords.forEach(word => {
+                    res += word.word + " found in " + word.container + " (" + word.type + ")"
+                    res += "<br/>"
+                })
+
+                output.innerHTML = res
+                
+            }}><textarea id="input" placeholder={`crossword
+example:
+AVOIDDQK
+LYMKAENS
+NOTATOPy
+WZTMSUWH
+TAVSRTSW
+RBTPEAEN
+RNLELTNR
+XENSRXZM`} /*value={`
+AVOIDDQK
+LYMKAENS
+NOTATOPy
+WZTMSUWH
+TAVSRTSW
+RBTPEAEN
+RNLELTNR
+XENSRXZM
+        `}*/></textarea>
+            <input id="words" type={`text`} placeholder='words,seperated,by,commas'
+             /*value={`water,test,slash,potato,purple,avoid,master,sneak`}*/></input>
+            </Script>
+
             <Script name={`time-dilation-calculator`} callback={() => {
                 let scriptDiv = document.getElementById("time-dilation-calculator")
                 let period_one = scriptDiv.querySelector("#period1").value
@@ -104,17 +264,6 @@ const ScriptsPage = ({data}) => {
             }}>
                 <input id="input" type={`text`} placeholder='demo text'></input>
             </Script>
-
-            {/*<ScriptDiv id="test-demo">
-                <input id="input" type={`text`}></input>
-                <h3 id="output"></h3>
-                <a id="run" onClick={() =>{
-                    let scriptDiv = document.getElementById("test-demo")
-                    let input = scriptDiv.querySelector("#input")
-                    let output = scriptDiv.querySelector("#output")
-                    output.innerHTML = input.value
-                }}><h1>Run</h1></a>
-            </ScriptDiv>*/}
 
         </BackgroundCover>
     </>

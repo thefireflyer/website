@@ -38,7 +38,7 @@ const HomePage = ({data}) => {
     return (
     <>
         <Seo title="Home" />
-            <BackgroundCover /*background={`linear-gradient(140deg, magenta, aqua) no-repeat fixed`}*/>
+            <BackgroundCover>
             <div  class="featured" >
                 <div id="featured">
                     {
@@ -77,22 +77,12 @@ const HomePage = ({data}) => {
                 </p>
             </div>
             
-            {/*}
-            <embed style={{borderRadius:`15px 50px 30px`, filter:`drop-shadow(0 0 1vw rgba(0,0,0,0.5))`}} type="text/html" src={withPrefix("gallery")} width="80%" height="600vh"></embed>
-            
-            <div style={{marginBottom:`5vh`}}></div>
-
-            <embed style={{borderRadius:`15px 50px 30px`, filter:`drop-shadow(0 0 1vw rgba(0,0,0,0.5))`}} type="text/html" src={withPrefix("blog")} width="80%" height="600vh"></embed>
-            */}
-
             </BackgroundCover>
     </>
     )
 }
 
 export default HomePage
-
-//filter: {frontmatter: {slug: {in: ["/images/img6", "/blog/test1"]}}}
 
 export const featuredPostsQuery = graphql`
   query {
