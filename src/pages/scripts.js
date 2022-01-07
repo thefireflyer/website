@@ -82,21 +82,65 @@ const ScriptsPage = ({data}) => {
 
 
             <Script name={`ideal-rocket-calculator`} callback={() => {
+                let scriptDiv = document.getElementById("coordinate-system-calculator")
+
                 
             }}>
-
+                <input id="input" type={`number`} placeholder='delta velocity'></input>
+                <input id="input" type={`number`} placeholder='dry mass'></input>
+                <input id="input" type={`number`} placeholder='wet mass'></input>
+                <input id="input" type={`number`} placeholder='specific impluse (in dimension of time)'></input>
             </Script>
 
             <Script name={`coordinate-system-calculator`} callback={() => {
+                let scriptDiv = document.getElementById("coordinate-system-calculator")
+                let angle = scriptDiv.querySelector("#angle").value
+                let length = scriptDiv.querySelector("#length").value
+                let x = scriptDiv.querySelector("#x").value
+                let y = scriptDiv.querySelector("#y").value
+
+                function degrees_to_radians(degrees)
+                {
+                return degrees * (Math.PI/180);
+                }
+
+                if (x == "" || y == "")
+                {
+                    x = length * Math.cos( degrees_to_radians(angle) )
+                    y = length * Math.sin( degrees_to_radians(angle) )
+                }
+
+                if (angle == "" || length == "")
+                {
+                    length = ( x**2 + y**2 )**(1/2)
+                    angle = Math.atan(x / y) * (180 / Math.PI);
+                }
+
+                scriptDiv.querySelector("#angle").value =  Math.round(angle*1000)/1000
+                scriptDiv.querySelector("#length").value =  Math.round(length*1000)/1000
+                scriptDiv.querySelector("#x").value = Math.round(x*1000)/1000
+                scriptDiv.querySelector("#y").value = Math.round(y*1000)/1000
                 
             }}>
+            <input id="angle" type={`number`} placeholder='angle°'></input>
+            <input id="length" type={`number`} placeholder='length'></input>
 
+            <input id="x" type={`number`} placeholder='x'></input>
+            <input id="y" type={`number`} placeholder='y'></input>
             </Script>
 
             <Script name={`triangle-solver`} callback={() => {
+                let scriptDiv = document.getElementById("coordinate-system-calculator")
+
 
             }}>
-
+                <input id="input" type={`number`} placeholder='a'></input>
+                <input id="input" type={`number`} placeholder='b'></input>
+                <input id="input" type={`number`} placeholder='c'></input>
+                
+                <input id="input" type={`number`} placeholder='α'></input>
+                <input id="input" type={`number`} placeholder='β'></input>
+                <input id="input" type={`number`} placeholder='γ'></input>
             </Script>
 
             
