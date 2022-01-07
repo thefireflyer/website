@@ -114,7 +114,7 @@ const ScriptsPage = ({data}) => {
                 scriptDiv.querySelector("#specific-impluse").value = Math.round(specific_impluse*1000)/1000
 
             }}>
-                <input id="deltav" type={`number`} placeholder='delta velocity'></input>
+                <input id="deltav" type={`number`} placeholder='change in velocity'></input>
                 <input id="wet-mass" type={`number`} placeholder='wet mass'></input>
                 <input id="dry-mass" type={`number`} placeholder='dry mass'></input>
                 <input id="specific-impluse" type={`number`} placeholder='specific impluse (in dimension of time)'></input>
@@ -179,48 +179,6 @@ const ScriptsPage = ({data}) => {
             <input id="x" type={`number`} placeholder='x'></input>
             <input id="y" type={`number`} placeholder='y'></input>
             </Script>
-
-            
-
-            <Script name={`triangle-solver`} callback={() => {
-                let scriptDiv = document.getElementById("triangle-solver")
-                //TODO:==========================================================================
-
-            }}>
-                <input id="input" type={`number`} placeholder='a'></input>
-                <input id="input" type={`number`} placeholder='b'></input>
-                <input id="input" type={`number`} placeholder='c'></input>
-                
-                <input id="input" type={`number`} placeholder='α'></input>
-                <input id="input" type={`number`} placeholder='β'></input>
-                <input id="input" type={`number`} placeholder='γ'></input>
-            </Script>
-
-            <Script name={`token-generator`} callback={() => {
-                let scriptDiv = document.getElementById("token-generator")
-                let input = scriptDiv.querySelector("#input").value
-                let output = scriptDiv.querySelector("#output")
-                let res = ""
-                const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~/!@#$%^&*()-_=+{}[];:,.<>/?|'\"".split("");
-
-                for ( var i = 0; i < input; i++ ) {
-                    res += characters[Math.floor(Math.random() * characters.length)];
-                }
-                output.innerHTML = res
-            }}>
-                <input type={`number`} min={0} id='input' placeholder='length'></input>
-            </Script>
-
-
-            {/*<Script name={`test-demo-2`} callback={() => {
-                let scriptDiv = document.getElementById("test-demo-2")
-                let input = scriptDiv.querySelector("#input")
-                let output = scriptDiv.querySelector("#output")
-                output.innerHTML = input.value
-            }}>
-                <input id="input" type={`text`} placeholder='demo text'></input>
-            </Script>*/}
-
 
             <Script name={`word-searcher`} callback={() => {
                 
@@ -379,6 +337,22 @@ XENSRXZM
             <input id="words" type={`text`} placeholder='words,seperated,by,commas'
              /*value={`water,test,slash,potato,purple,avoid,master,sneak`}*/></input>
             </Script>
+
+            <Script name={`token-generator`} callback={() => {
+                let scriptDiv = document.getElementById("token-generator")
+                let input = scriptDiv.querySelector("#input").value
+                let output = scriptDiv.querySelector("#output")
+                let res = ""
+                const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~/!@#$%^&*()-_=+{}[];:,.<>/?|'\"".split("");
+
+                for ( var i = 0; i < input; i++ ) {
+                    res += characters[Math.floor(Math.random() * characters.length)];
+                }
+                output.innerHTML = res
+            }}>
+                <input type={`number`} min={0} id='input' placeholder='length'></input>
+            </Script>
+
 
         </BackgroundCover>
     </>
