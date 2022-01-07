@@ -82,14 +82,65 @@ const ScriptsPage = ({data}) => {
 
 
             <Script name={`ideal-rocket-calculator`} callback={() => {
-                let scriptDiv = document.getElementById("coordinate-system-calculator")
+                let scriptDiv = document.getElementById("ideal-rocket-calculator")
+                let deltav = scriptDiv.querySelector("#deltav").value
+                let dry_mass = scriptDiv.querySelector("#dry-mass").value
+                let wet_mass = scriptDiv.querySelector("#wet-mass").value
+                let specific_impluse = scriptDiv.querySelector("#specific-impluse").value
+                const g0 = 9.80665
 
+                if (specific_impluse == "")
+                {
+                    specific_impluse = deltav/g0/Math.log(wet_mass/dry_mass)
+                }
+                let effective_exhaust_velocity = specific_impluse*g0
+
+                if (deltav == "")
+                {
+                    deltav = effective_exhaust_velocity*Math.log(wet_mass/dry_mass)
+                }
+                if (dry_mass == "")
+                {
+                    dry_mass=wet_mass/Math.E**(deltav/effective_exhaust_velocity)
+                } 
+                if (wet_mass == "")
+                {
+                    wet_mass=Math.E**(deltav/effective_exhaust_velocity)*dry_mass
+                }
+                
+                scriptDiv.querySelector("#deltav").value = Math.round(deltav*1000)/1000
+                scriptDiv.querySelector("#dry-mass").value = Math.round(dry_mass*1000)/1000
+                scriptDiv.querySelector("#wet-mass").value = Math.round(wet_mass*1000)/1000
+                scriptDiv.querySelector("#specific-impluse").value = Math.round(specific_impluse*1000)/1000
+
+            }}>
+                <input id="deltav" type={`number`} placeholder='delta velocity'></input>
+                <input id="wet-mass" type={`number`} placeholder='wet mass'></input>
+                <input id="dry-mass" type={`number`} placeholder='dry mass'></input>
+                <input id="specific-impluse" type={`number`} placeholder='specific impluse (in dimension of time)'></input>
+            </Script>
+            
+
+            <Script name={`time-dilation-calculator`} callback={() => {
+                let scriptDiv = document.getElementById("time-dilation-calculator")
+                let period_one = scriptDiv.querySelector("#period1").value
+                let period_two = scriptDiv.querySelector("#period2").value
+                let output = scriptDiv.querySelector("#output")
+                const c = 299792458;
+                let short_period = (period_one<period_two)?period_one:period_two;
+                let long_period = (period_one>period_two)?period_one:period_two;
+                let speed = ((1-(short_period/long_period)**2)*c**2)**(1/2)
+
+                const G = 6.67430 *10**-11
+                
+                let mass = (1-(short_period/long_period)**2)*c**2/2/G
+
+                output.innerHTML = speed + " m/s relative to the faster clocks frame of reference or " + (speed/c*100)+`% the speed of light <br/>
+                <br/>`+mass+` kg compacted into a sphere tangential to the reference point with a radius of one meter`
                 
             }}>
-                <input id="input" type={`number`} placeholder='delta velocity'></input>
-                <input id="input" type={`number`} placeholder='dry mass'></input>
-                <input id="input" type={`number`} placeholder='wet mass'></input>
-                <input id="input" type={`number`} placeholder='specific impluse (in dimension of time)'></input>
+                <input id="period1" type={`number`} placeholder='period of first clock'></input>
+                <input id="period2" type={`number`} placeholder='period of second clock'></input>
             </Script>
 
             <Script name={`coordinate-system-calculator`} callback={() => {
@@ -129,9 +180,11 @@ const ScriptsPage = ({data}) => {
             <input id="y" type={`number`} placeholder='y'></input>
             </Script>
 
-            <Script name={`triangle-solver`} callback={() => {
-                let scriptDiv = document.getElementById("coordinate-system-calculator")
+            
 
+            <Script name={`triangle-solver`} callback={() => {
+                let scriptDiv = document.getElementById("triangle-solver")
+                //TODO:==========================================================================
 
             }}>
                 <input id="input" type={`number`} placeholder='a'></input>
@@ -143,37 +196,12 @@ const ScriptsPage = ({data}) => {
                 <input id="input" type={`number`} placeholder='γ'></input>
             </Script>
 
-            
-
-            <Script name={`time-dilation-calculator`} callback={() => {
-                let scriptDiv = document.getElementById("time-dilation-calculator")
-                let period_one = scriptDiv.querySelector("#period1").value
-                let period_two = scriptDiv.querySelector("#period2").value
-                let output = scriptDiv.querySelector("#output")
-                const c = 299792458;
-                let short_period = (period_one<period_two)?period_one:period_two;
-                let long_period = (period_one>period_two)?period_one:period_two;
-                let speed = ((1-(short_period/long_period)**2)*c**2)**(1/2)
-
-                const G = 6.67430 *10**-11
-                
-                let mass = (1-(short_period/long_period)**2)*c**2/2/G
-
-                output.innerHTML = speed + " m/s relative to the faster clocks frame of reference or " + (speed/c*100)+`% the speed of light <br/>
-                <br/>`+mass+` kg compacted into a sphere tangential to the reference point with a radius of one meter`
-                
-            }}>
-                <input id="period1" type={`number`} placeholder='period of first clock'></input>
-                <input id="period2" type={`number`} placeholder='period of second clock'></input>
-            </Script>
-
-
             <Script name={`token-generator`} callback={() => {
                 let scriptDiv = document.getElementById("token-generator")
                 let input = scriptDiv.querySelector("#input").value
                 let output = scriptDiv.querySelector("#output")
                 let res = ""
-                const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/!@#$%^&*()-_=+{}[];:,.<>/?|'\"".split("");
+                const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~/!@#$%^&*()-_=+{}[];:,.<>/?|'\"".split("");
 
                 for ( var i = 0; i < input; i++ ) {
                     res += characters[Math.floor(Math.random() * characters.length)];
