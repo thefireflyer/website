@@ -32,10 +32,11 @@ const Layout = ({children}) => {
 
     let navBar = document.getElementById("navBar");
     let navBarMobile = document.getElementById("navBarMobile");
+    let navLogo = document.getElementById("nav-logo").querySelector("img");
     //let navMenuMobile = document.getElementById("menu");
     //navMenuMobile.style.width = '0';
-
-    window.addEventListener('scroll', function() {
+    
+    let scrollHandle = window.setInterval(function() {
       if (window.pageYOffset > 10){
         navBar.style.setProperty("--nav_bar_blur", "5px");
         navBar.style.setProperty("--nav_bar_color", "rgba(0,0,0,0.7)");
@@ -52,13 +53,17 @@ const Layout = ({children}) => {
       if (currentScroll > lastScrollPos)
       {
         navBarMobile.style.top = `-14vh`;
+        navBar.style.top = `-14vh`;
+        navLogo.style.top = `-14vh`;
       }
-      else {
+      if (currentScroll < lastScrollPos) {
         navBarMobile.style.top = `0`;
+        navBar.style.top = `-1.1%`;
+        navLogo.style.top = `-1.25vw`;
       }
 
       lastScrollPos = currentScroll;
-    })
+    }, 500);
 
     if (getCookie("blm_popup") != "true")
     {
@@ -95,7 +100,7 @@ const Layout = ({children}) => {
 
       </div>
 
-      <Link to="/" className="nav-logo">
+      <Link to="/" id="nav-logo">
         <img
         alt="Logo"
         src={withPrefix("/icon__.png")}
@@ -143,7 +148,7 @@ const Layout = ({children}) => {
           return isCurrent ? { style: {color: `white`} } : {}
         }}><h1>Scripts</h1></Link>
 
-        <Link to="/cabin" getProps={({ isCurrent }) => {
+        <Link to="https://theflyingfire.github.io/homeportal/" getProps={({ isCurrent }) => {
           return isCurrent ? { style: {color: `white`} } : {}
         }}><h1>Cabin↪</h1></Link>
 

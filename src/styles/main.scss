@@ -51,6 +51,8 @@ html {
     display: none;
     grid-auto-flow: row;
     grid-template-columns: auto auto auto auto;
+
+    transition: top 1s;
     //grid-template-columns: auto;
     //grid-template-rows: 0vw / auto;
     //grid-template-areas: 'test test test test test';
@@ -150,7 +152,7 @@ html {
     }
   }
   @media only screen and (max-width: 900px) {
-    .nav-logo {
+    #nav-logo {
         display: none;
     }
     .contentMargin-mobile {
@@ -161,13 +163,15 @@ html {
     }
   }
 
-.nav-logo img {
+#nav-logo img {
     animation: nav-bar-element-drop-in 2s;
     position: fixed;
     width: $nav-bar-height*2;
     top: -$nav-bar-height/2;
     left: 50vw - $nav-bar-height;
     align-content: center;
+
+    transition: top 1s;
 }
 
 body {
