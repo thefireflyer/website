@@ -51,7 +51,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/sq/d/246503725.json",
-    "revision": "7621fc321180fdf620b06b8d9ddf98ce"
+    "revision": "b19ac526f24fa0449d36a0458735762a"
   },
   {
     "url": "page-data/sq/d/3649515864.json",
@@ -63,7 +63,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "44301a94cf0ca1e1ee075c1b4b6ccccf"
+    "revision": "ec5aae7368da53e76a33142853d65ad0"
   },
   {
     "url": "polyfill-7f9d44788141b1097103.js"
