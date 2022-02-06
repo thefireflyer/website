@@ -97,7 +97,13 @@ const CloseButton = styled.button`
 `
 
 const Popup = ({data}) => {    
-    
+    React.useEffect(() => {
+        if (getCookie("blm_popup") != "true")
+        {
+            document.getElementById('popup').style.display = 'grid';
+        }
+    })
+
     return (
         <PopupSection id='popup' onAnimationEnd={(animation) => {
             if (animation.animationName == "on-close"){

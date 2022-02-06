@@ -67,7 +67,7 @@ const AboutPage = () => {
           <h1>Active projects</h1>
 
           <a href='https://github.com/theflyingfire/AutoControlG'><h1>AutoControlG</h1></a>
-          <a href=''><h1>GoCiv</h1></a>
+          <a href='https://theflyingfire.github.io/homeportal/'><h1>HomePortal</h1></a>
           <a href=''><h1>First Tech Challenge</h1></a>
 
           <h1>Misc</h1>
