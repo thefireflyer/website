@@ -94,12 +94,12 @@ const App = ({data}) => {
 const apps = [
     {
         name: "HomePortal",
-        iconUrl: "/icon.png",
+        iconUrl: withPrefix("/icon.png"),
         path: "https://theflyingfire.github.io/homeportal/"
     },
     {
         name: "Timeable",
-        iconUrl: "/icon.png",
+        iconUrl: withPrefix("/icon.png"),
         path: "https://theflyingfire.github.io/timeable/"
     },
     {
